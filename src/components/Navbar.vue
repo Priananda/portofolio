@@ -20,7 +20,7 @@ function scrollToSection3() {
     class="sticky z-20 top-0 px-12 py-5 flex w-full bg-slate-900 text-md items-center justify-between"
   >
     <div>
-      <h1 class="font-semibold text-2xl text-white">Portofolio</h1>
+      <h1 class="font-semibold text-2xl text-white">Portfolio</h1>
     </div>
     <nav class="">
       <ul class="flex text-sm space-x-10">
@@ -72,7 +72,7 @@ function scrollToSection3() {
             <span>Skills & Tools</span>
           </a>
         </li>
-        <!-- <li>
+        <li>
           <a
             href="#"
             class="flex items-center space-x-1 text-white hover:text-gray-200 duration-300 transition-colors ease-in-out"
@@ -88,9 +88,9 @@ function scrollToSection3() {
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
             </svg>
 
-            <span>Portfolio</span>
+            <span>My Projects</span>
           </a>
-        </li> -->
+        </li>
         <li>
           <a
             href="#"
