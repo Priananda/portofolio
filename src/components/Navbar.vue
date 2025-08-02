@@ -8,7 +8,7 @@ function scrollToSection1() {
     behavior: 'smooth',
   })
 }
-// Fungsi untuk scroll ke bawah untuk section 3
+// Fungsi untukk scroll ke bawah untuk section 3
 function scrollToSection3() {
   const targetSection3 = document.getElementById('section3')
   targetSection3.scrollIntoView({ behavior: 'smooth' })
