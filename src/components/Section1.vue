@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted, nextTick } from 'vue'
-import ReusableButton from './button/reusableButton.vue'
+import ReusableButton from './button/ReusableButton.vue'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import p from '@/assets/images/p.jpg'
