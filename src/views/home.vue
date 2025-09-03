@@ -1,7 +1,7 @@
 <script setup>
-import section1Home from '../components/section1Home.vue'
+import Section1 from '../components/Section1.vue'
 </script>
 
 <template>
-  <section1Home />
+  <Section1 />
 </template>
