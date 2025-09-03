@@ -1,6 +1,6 @@
 <template>
-  <footer class="bg-gray-900 text-white">
-    <div class="text-md py-4 mb-4 text-center text-gray-200">
+  <footer class="bg-white">
+    <div class="text-md py-4 mb-4 text-center text-blue-800">
       &copy; 2025 Portfolio. All Rights Reserved.
     </div>
   </footer>

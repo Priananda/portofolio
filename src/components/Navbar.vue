@@ -21,17 +21,17 @@ function handleMenuClick(id) {
 
 <template>
   <header
-    class="sticky top-0 z-20 bg-slate-900 px-5 md:px-10 lg:px-16 py-5 flex items-center justify-between"
+    class="sticky top-0 z-20 bg-white px-4 md:px-10 lg:px-14 py-6 flex items-center justify-between"
   >
-    <h1 class="text-2xl font-semibold text-white">Portfolio</h1>
+    <h1 class="text-3xl font-bold text-shadow-sm text-blue-800">Portfolio</h1>
     <!-- Laptop dan Dekstop -->
     <nav class="hidden md:flex">
-      <ul class="flex space-x-8 text-white">
+      <ul class="flex space-x-8 font-medium text-md">
         <li>
           <a
             href=""
             @click.prevent="scrollToSection('section1')"
-            class="hover:text-gray-200 transition-colors"
+            class="text-blue-800 hover:text-blue-800/90"
           >
             Home
           </a>
@@ -41,7 +41,7 @@ function handleMenuClick(id) {
           <a
             @click.prevent="scrollToSection('section3')"
             href=""
-            class="hover:text-gray-200 transition-colors"
+            class="text-blue-800 hover:text-blue-800/90"
             >Skills & Tools</a
           >
         </li>
@@ -49,7 +49,7 @@ function handleMenuClick(id) {
           <a
             @click.prevent="scrollToSection('section4')"
             href=""
-            class="hover:text-gray-200 transition-colors"
+            class="text-blue-800 hover:text-blue-800/90"
             >My Projects</a
           >
         </li>
@@ -57,7 +57,7 @@ function handleMenuClick(id) {
           <a
             @click.prevent="scrollToSection('section5')"
             href=""
-            class="hover:text-gray-200 transition-colors"
+            class="text-blue-800 hover:text-blue-800/90"
             >Contact</a
           >
         </li>
@@ -65,10 +65,13 @@ function handleMenuClick(id) {
     </nav>
 
     <!-- Hamburger Button -->
-    <button @click="openSidebar = true" class="md:hidden text-white focus:outline-none">
+    <button
+      @click="openSidebar = true"
+      class="md:hidden text-blue-800 focus:outline-none cursor-pointer"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        class="h-6 w-6"
+        class="h-7 w-7"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -80,15 +83,18 @@ function handleMenuClick(id) {
 
     <!-- Sidebar -->
     <div
-      class="fixed top-0 left-0 h-full w-64 bg-slate-900 text-white shadow-lg transform transition-transform duration-300 z-30"
+      class="fixed top-0 left-0 h-full w-64 bg-white text-blue-800 shadow-lg transform transition-transform duration-300 z-30"
       :class="openSidebar ? 'translate-x-0' : '-translate-x-full'"
     >
-      <div class="flex justify-between items-center px-5 py-5 border-slate-900">
-        <h2 class="text-lg">Menu</h2>
-        <button @click="openSidebar = false" class="focus:outline-none">
+      <div class="flex mt-5 px-5 py-5 justify-between items-center">
+        <h2 class="text-lg font-bold">Menu</h2>
+        <button
+          @click="openSidebar = false"
+          class="focus:outline-none text-blue-800 hover:text-blue-800/90"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
+            class="h-7 w-7"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -98,36 +104,24 @@ function handleMenuClick(id) {
           </svg>
         </button>
       </div>
-      <ul class="flex flex-col mt-6 space-y-5 px-5 text-white text-md">
+      <ul class="flex flex-col mt-6 space-y-5 px-5 text-md">
         <li>
-          <a
-            href="#section1"
-            @click="handleMenuClick('section1')"
-            class="hover:text-gray-200 transition-colors"
+          <a @click="handleMenuClick('section1')" class="text-blue-800 hover:text-blue-800/90"
             >Home</a
           >
         </li>
         <li>
-          <a
-            href="#section3"
-            @click="handleMenuClick('section3')"
-            class="hover:text-gray-200 transition-colors"
+          <a @click="handleMenuClick('section3')" class="text-blue-800 hover:text-blue-800/90"
             >Skills & Tools</a
           >
         </li>
         <li>
-          <a
-            href="#section4"
-            @click="handleMenuClick('section4')"
-            class="hover:text-gray-200 transition-colors"
+          <a @click="handleMenuClick('section4')" class="text-blue-800 hover:text-blue-800/90"
             >My Projects</a
           >
         </li>
         <li>
-          <a
-            href="#section5"
-            @click="handleMenuClick('section5')"
-            class="hover:text-gray-200 transition-colors"
+          <a @click="handleMenuClick('section5')" class="text-blue-800 hover:text-blue-800/90"
             >Contact</a
           >
         </li>
@@ -136,9 +130,9 @@ function handleMenuClick(id) {
 
     <!-- Overlay -->
     <div
-      v-if="isSidebarOpen"
-      @click="isSidebarOpen = false"
-      class="fixed inset-0 backdrop-blur-sm transition-opacity z-20"
+      v-if="openSidebar"
+      @click="openSidebar = false"
+      class="fixed inset-0 backdrop-blur-xs transition-opacity z-20"
     ></div>
   </header>
 </template>
