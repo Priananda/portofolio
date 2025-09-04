@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, nextTick } from 'vue'
+import { ref, onMounted, nextTick, onUnmounted } from 'vue'
 import ReusableButton from './button/ReusableButton.vue'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
@@ -54,59 +54,121 @@ function scrollToSection3() {
 }
 
 // Button project pada section
+const selectedCard = ref(null)
+const openModalOnDetail = (item) => {
+  selectedCard.value = item
+}
+const closeModalOnDetail = () => {
+  selectedCard.value = null
+}
+
 const clickTab = ['Projects', 'Certificates']
 const defaultTab = ref('Projects')
 const projects = [
   {
-    title: 'web programming',
+    title: 'Sistem Ordering Menu & Dashboard Admin on Ikan Bakar Bli Putu',
     description: 'Prog.',
+    fullDescription: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Pellentesque id sem in nulla commodo tincidunt. Quisque nec facilisis nulla.
+      Morbi vel tincidunt sapien, ut porta erat. Cras sit amet dapibus est.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Pellentesque id sem in nulla commodo tincidunt. Quisque nec facilisis nulla.
+      Morbi vel tincidunt sapien, ut porta erat. Cras sit amet dapibus est.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Pellentesque id sem in nulla commodo tincidunt. Quisque nec facilisis nulla.
+      Morbi vel tincidunt sapien, ut porta erat. Cras sit amet dapibus est.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Pellentesque id sem in nulla commodo tincidunt. Quisque nec facilisis nulla.
+      Morbi vel tincidunt sapien, ut porta erat. Cras sit amet dapibus est.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Pellentesque id sem in nulla commodo tincidunt. Quisque nec facilisis nulla.
+      Morbi vel tincidunt sapien, ut porta erat. Cras sit amet dapibus est.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Pellentesque id sem in nulla commodo tincidunt. Quisque nec facilisis nulla.
+      Morbi vel tincidunt sapien, ut porta erat. Cras sit amet dapibus est.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Pellentesque id sem in nulla commodo tincidunt. Quisque nec facilisis nulla.
+      Morbi vel tincidunt sapien, ut porta erat. Cras sit amet dapibus est.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Pellentesque id sem in nulla commodo tincidunt. Quisque nec facilisis nulla.
+      Morbi vel tincidunt sapien, ut porta erat. Cras sit amet dapibus est.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Pellentesque id sem in nulla commodo tincidunt. Quisque nec facilisis nulla.
+      Morbi vel tincidunt sapien, ut porta erat. Cras sit amet dapibus est.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Pellentesque id sem in nulla commodo tincidunt. Quisque nec facilisis nulla.
+      Morbi vel tincidunt sapien, ut porta erat. Cras sit amet dapibus est.`,
     image: p,
   },
   {
-    title: 'web',
+    title: 'Company Profile on Ikan Bakar Bli Putu',
+    description: 'We.',
+    image: p,
+  },
+  {
+    title: 'Sistem Jinom Resellers',
     description: 'Solus.',
     image: p,
   },
   {
-    title: 'web',
+    title: 'Sistem TaskList',
+    description: 'We.',
+    image: p,
+  },
+  {
+    title: 'Sistem Chatting',
     description: 'We.',
     image: p,
   },
 ]
 const certificates = [
   {
-    title: 'web programming',
+    title: 'Certificate Internship Front-end Developer on PT Jinom Network Indonesia',
     description: 'Prog.',
+    fullDescription: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Pellentesque id sem in nulla commodo tincidunt. Quisque nec facilisis nulla.
+      Morbi vel tincidunt sapien, ut porta erat. Cras sit amet dapibus est.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Pellentesque id sem in nulla commodo tincidunt. Quisque nec facilisis nulla.
+      Morbi vel tincidunt sapien, ut porta erat. Cras sit amet dapibus est.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Pellentesque id sem in nulla commodo tincidunt. Quisque nec facilisis nulla.
+      Morbi vel tincidunt sapien, ut porta erat. Cras sit amet dapibus est.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Pellentesque id sem in nulla commodo tincidunt. Quisque nec facilisis nulla.
+      Morbi vel tincidunt sapien, ut porta erat. Cras sit amet dapibus est.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Pellentesque id sem in nulla commodo tincidunt. Quisque nec facilisis nulla.
+      Morbi vel tincidunt sapien, ut porta erat. Cras sit amet dapibus est.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Pellentesque id sem in nulla commodo tincidunt. Quisque nec facilisis nulla.
+      Morbi vel tincidunt sapien, ut porta erat. Cras sit amet dapibus est.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Pellentesque id sem in nulla commodo tincidunt. Quisque nec facilisis nulla.
+      Morbi vel tincidunt sapien, ut porta erat. Cras sit amet dapibus est.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Pellentesque id sem in nulla commodo tincidunt. Quisque nec facilisis nulla.
+      Morbi vel tincidunt sapien, ut porta erat. Cras sit amet dapibus est.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Pellentesque id sem in nulla commodo tincidunt. Quisque nec facilisis nulla.
+      Morbi vel tincidunt sapien, ut porta erat. Cras sit amet dapibus est.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Pellentesque id sem in nulla commodo tincidunt. Quisque nec facilisis nulla.
+      Morbi vel tincidunt sapien, ut porta erat. Cras sit amet dapibus est.`,
     image: p,
   },
   {
-    title: 'web',
+    title: 'Certificate MBKM Web Developer on PT Amanah Karya Indonesia',
     description: 'Solus.',
     image: p,
   },
   {
-    title: 'web',
+    title:
+      'Certificate Programmer BNSP (Badan Nasional Sertifikasi Profesi) on Primakara University',
+    description: 'We.',
+    image: p,
+  },
+  {
+    title:
+      'Certificate PELP TEST (Primakara English Language Proficiency Test) on Primakara University',
+    description: 'We.',
+    image: p,
+  },
+  {
+    title: 'Certificate CAREER PREPARATION on Primakara University',
+    description: 'We.',
+    image: p,
+  },
+  {
+    title: 'Certificate FCNS (Foresec Certified in Networking Security) on Primakara University',
     description: 'We.',
     image: p,
   },
 ]
-// const techStacks = [
-//   {
-//     title: 'web programming',
-//     description: 'Prog.',
-//     image: p,
-//   },
-//   {
-//     title: 'web',
-//     description: 'Solus.',
-//     image: p,
-//   },
-//   {
-//     title: 'web',
-//     description: 'We.',
-//     image: p,
-//   },
-// ]
 
 // Download CV
 const downloadCV = () => {
@@ -157,7 +219,7 @@ const downloadCV = () => {
   <!-- Section 2 -->
   <section
     id="section2"
-    class="container mx-auto scroll-mt-20 mt-24 md:-mt-40 lg:mt-0 px-5 md:px-2 lg:px-14 py-10 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 items-center gap-16"
+    class="container mx-auto scroll-mt-20 bg-white mt-24 md:-mt-40 lg:mt-0 px-5 md:px-2 lg:px-14 py-10 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 items-center gap-16"
   >
     <!-- Gambar -->
     <div class="flex justify-center" data-aos="fade-down">
@@ -170,11 +232,11 @@ const downloadCV = () => {
 
     <!-- Konten -->
     <div class="space-y-5" data-aos="fade-up">
-      <h1
-        class="text-4xl font-bold text-shadow-sm bg-gradient-to-r from-blue-800 to-indigo-500 text-transparent bg-clip-text"
+      <h2
+        class="text-3xl md:text-4xl lg:text-4xl font-bold text-shadow-sm bg-gradient-to-r from-blue-800 to-indigo-500 text-transparent bg-clip-text"
       >
         {{ typeText }}
-      </h1>
+      </h2>
 
       <p class="text-lg text-gray-800 leading-8 text-justify">
         I'm a web developer specializing in building website-based applications. I've worked on
@@ -212,11 +274,11 @@ const downloadCV = () => {
         <!-- Frontend -->
         <div data-aos="fade-up" data-aos-delay="200" class="border-wrapper bg-white flex flex-col">
           <div class="p-6 flex flex-col items-center justify-center space-y-5">
-            <h1
+            <h3
               class="text-2xl font-bold text-center bg-gradient-to-r from-cyan-700 to-blue-800 text-transparent bg-clip-text"
             >
               Front-end
-            </h1>
+            </h3>
             <ul class="grid grid-cols-2 text-gray-800 text-md list-disc list-inside gap-3">
               <li>Responsive</li>
               <li>Vanilla JS</li>
@@ -237,11 +299,11 @@ const downloadCV = () => {
         <!-- Backend -->
         <div data-aos="fade-up" data-aos-delay="400" class="border-wrapper bg-white flex flex-col">
           <div class="p-6 flex flex-col items-center justify-center space-y-5">
-            <h1
+            <h3
               class="text-2xl font-bold text-center bg-gradient-to-r from-cyan-700 to-blue-800 text-transparent bg-clip-text"
             >
               Back-end
-            </h1>
+            </h3>
             <ul class="grid grid-cols-2 text-gray-800 text-md list-disc list-inside gap-3">
               <li>Laravel</li>
               <li>Express.js</li>
@@ -257,11 +319,11 @@ const downloadCV = () => {
         <!-- Tools -->
         <div data-aos="fade-up" data-aos-delay="600" class="border-wrapper bg-white flex flex-col">
           <div class="p-6 flex flex-col items-center justify-center space-y-5">
-            <h1
+            <h3
               class="text-2xl font-bold text-center bg-gradient-to-r from-cyan-700 to-blue-800 text-transparent bg-clip-text"
             >
               Tools & Workflow
-            </h1>
+            </h3>
             <ul class="grid grid-cols-2 text-gray-800 text-md list-disc list-inside gap-3">
               <li class="col-span-1">Github</li>
               <li class="col-span-1">Gitlab</li>
@@ -302,7 +364,7 @@ const downloadCV = () => {
               :key="tab"
               @click="defaultTab = tab"
               :class="[
-                'px-14 py-4 text-lg cursor-pointer rounded-full shadow-md w-full sm:w-auto',
+                'px-14 py-4 text-md cursor-pointer rounded-full shadow-md w-full sm:w-auto',
                 defaultTab === tab
                   ? 'btn-shadow bg-gradient-to-r from-blue-800 to-indigo-800 hover:text-white hover:to-indigo-600 text-white font-normal'
                   : 'bg-gradient-to-r from-cyan-500 to-blue-800 text-transparent bg-clip-text font-normal',
@@ -326,13 +388,17 @@ const downloadCV = () => {
                 <img :src="project.image" :alt="project.title" class="h-56 w-full object-cover" />
                 <div class="p-6 flex-1 flex flex-col">
                   <div>
-                    <h3 class="mb-3 text-xl text-black font-bold">
+                    <h3 class="mb-3 text-lg text-black font-bold">
                       {{ project.title }}
                     </h3>
                     <p class="mb-5 text-md text-gray-800">{{ project.description }}</p>
                   </div>
                   <div class="flex justify-between mt-auto">
-                    <button class="text-blue-800 hover:text-blue-800/90 text-md cursor-pointer">
+                    <button
+                      type="button"
+                      @click="openModalOnDetail(project)"
+                      class="text-blue-800 hover:text-blue-800/90 text-md cursor-pointer"
+                    >
                       Details
                     </button>
                   </div>
@@ -357,13 +423,17 @@ const downloadCV = () => {
                 />
                 <div class="p-6 flex-1 flex flex-col">
                   <div>
-                    <h3 class="mb-3 text-xl text-black font-bold">
+                    <h3 class="mb-3 text-lg text-black font-bold">
                       {{ certificate.title }}
                     </h3>
                     <p class="mb-5 text-md text-gray-800">{{ certificate.description }}</p>
                   </div>
                   <div class="flex justify-between mt-auto">
-                    <button class="text-blue-800 hover:text-blue-800/90 text-md cursor-pointer">
+                    <button
+                      type="button"
+                      @click="openModalOnDetail(certificate)"
+                      class="text-blue-800 hover:text-blue-800/90 text-md cursor-pointer"
+                    >
                       Details
                     </button>
                   </div>
@@ -403,7 +473,7 @@ const downloadCV = () => {
             <h3 class="font-medium text-lg text-gray-800">Email</h3>
             <a
               href="mailto:kadekpriananda12@gmail.com"
-              class="text-md text-blue-800 hover:text-blue-800/90 hover:underline"
+              class="break-words text-md text-blue-800 hover:text-blue-800/90 hover:underline"
             >
               kadekpriananda12@gmail.com
             </a>
@@ -411,8 +481,10 @@ const downloadCV = () => {
           <div class="mb-6 space-y-2">
             <h3 class="font-medium text-lg text-gray-800">Phone</h3>
             <a
-              href="tel:+6285964306002"
-              class="text-md text-blue-800 hover:text-blue-800/90 hover:underline"
+              href="https://wa.me/6285964306002?text=Hallo%20saya%20ingin%20%20berdiskusi%20lebih%20lanjut%20dengan%20anda%20terkait%20portofolio%20anda"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="break-words text-md text-blue-800 hover:text-blue-800/90 hover:underline"
             >
               +62 859-6430-6002
             </a>
@@ -432,7 +504,7 @@ const downloadCV = () => {
             <a
               href="https://github.com/Priananda"
               target="_blank"
-              class="text-md text-blue-800 hover:text-blue-800/90 hover:underline"
+              class="break-words text-md text-blue-800 hover:text-blue-800/90 hover:underline"
             >
               https://github.com/Priananda
             </a>
@@ -442,12 +514,74 @@ const downloadCV = () => {
             <a
               href="https://gitlab.com/kadekpriananda12"
               target="_blank"
-              class="text-md text-blue-800 hover:text-blue-800/90 hover:underline"
+              class="break-words text-md text-blue-800 hover:text-blue-800/90 hover:underline"
             >
               https://gitlab.com/kadekpriananda12
             </a>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6 Modal  -->
+  <section>
+    <transition
+      enter-active-class="transition transform duration-300"
+      enter-from-class="opacity-0 translate-y-full"
+      enter-to-class="opacity-100 translate-y-0"
+      leave-active-class="transition transform duration-200"
+      leave-from-class="opacity-100 translate-y-0"
+      leave-to-class="opacity-0 translate-y-full"
+    >
+      <div
+        v-if="selectedCard"
+        class="fixed inset-0 bg-black/20 flex items-center justify-center z-50"
+      >
+        <div
+          class="relative bg-white w-full max-w-xl max-h-[70vh] rounded-xl shadow-md shadow-blue-800/20 overflow-hidden"
+        >
+          <div class="px-9 py-10 overflow-y-auto max-h-[70vh] text-justify hide-scrollbar-to-modal">
+            <h2 class="text-lg font-bold mb-4">{{ selectedCard.title }}</h2>
+            <p class="text-md text-gray-800 leading-relaxed">
+              {{ selectedCard.fullDescription }}
+            </p>
+          </div>
+
+          <button
+            @click="closeModalOnDetail"
+            class="absolute top-3 right-3 focus:outline-none text-blue-800 hover:text-blue-800/90 cursor-pointer"
+            type="button"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </transition>
+  </section>
+
+  <!-- Section 7 name  -->
+  <section>
+    <div class="fixed top-[80px] left-5 md:left-10 lg:left-14 flex flex-col items-center z-10">
+      <div class="flex gap-6">
+        <div class="w-1 h-9 bg-blue-800 rounded-b"></div>
+        <div class="w-1 h-9 bg-blue-800 rounded-b"></div>
+      </div>
+
+      <div
+        class="mt-0 px-6 py-3 font-bold text-center bg-white/90 text-blue-800 border-2 border-blue-800 rounded-md shadow-md shadow-blue-800/20"
+      >
+        <h2 class="text-sm">I Kadek Priananda</h2>
+        <span class="text-xs font-medium text-blue-500">Full-Stack Developer</span>
       </div>
     </div>
   </section>
@@ -521,5 +655,15 @@ const downloadCV = () => {
 
 .btn-shadow {
   box-shadow: 0 0 16px 2px #0b48d6be;
+}
+
+/* CSS untuk menyembunyikan scrollbar tapi tetap bisa scroll */
+.hide-scrollbar-to-modal {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+.hide-scrollbar-to-moda::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
 }
 </style>
