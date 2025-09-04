@@ -194,9 +194,9 @@ const downloadCV = () => {
   >
     <div class="absolute inset-0 z-5">
       <div class="bubble-section1"></div>
-      <div class="bubble-section1 bubble-delay-2000"></div>
-      <div class="bubble-section1 bubble-delay-4000"></div>
-      <div class="bubble-section1 bubble-delay-6000"></div>
+      <div class="bubble-section1"></div>
+      <div class="bubble-section1"></div>
+      <div class="bubble-section1"></div>
     </div>
 
     <h1
@@ -525,7 +525,7 @@ const downloadCV = () => {
   </section>
 
   <!-- Section 6 Modal  -->
-  <section>
+  <section class="container mx-auto">
     <transition
       enter-active-class="transition transform duration-300"
       enter-from-class="opacity-0 translate-y-full"
@@ -536,12 +536,12 @@ const downloadCV = () => {
     >
       <div
         v-if="selectedCard"
-        class="fixed inset-0 bg-black/20 flex items-center justify-center z-50"
+        class="fixed inset-0 px-3 bg-black/20 flex items-center justify-center z-50"
       >
         <div
           class="relative bg-white w-full max-w-xl max-h-[70vh] rounded-xl shadow-md shadow-blue-800/20 overflow-hidden"
         >
-          <div class="px-9 py-10 overflow-y-auto max-h-[70vh] text-justify hide-scrollbar-to-modal">
+          <div class="px-9 py-14 overflow-y-auto max-h-[70vh] text-justify hide-scrollbar-to-modal">
             <h2 class="text-lg font-bold mb-4">{{ selectedCard.title }}</h2>
             <p class="text-md text-gray-800 leading-relaxed">
               {{ selectedCard.fullDescription }}
@@ -570,7 +570,7 @@ const downloadCV = () => {
   </section>
 
   <!-- Section 7 name  -->
-  <section>
+  <section class="container">
     <div class="fixed top-[80px] left-5 md:left-10 lg:left-14 flex flex-col items-center z-10">
       <div class="flex gap-6">
         <div class="w-1 h-9 bg-blue-800 rounded-b"></div>
@@ -600,10 +600,7 @@ const downloadCV = () => {
   height: 180px;
   border-radius: 50%;
 }
-.bubble-section1:nth-child(2) {
-  left: 20%;
-  top: 60%;
-}
+
 @keyframes bubble {
   0% {
     transform: translateY(0) translateX(0) scale(1);
@@ -615,23 +612,34 @@ const downloadCV = () => {
     transform: translateY(0) translateX(0) scale(1);
   }
 }
-.bubble-delay-2000,
-.bubble-delay-4000,
-.bubble-delay-6000 {
-  animation-delay: 4s;
-}
 
 /* Mobile */
+.bubble-section1:nth-child(1) {
+  left: 1%;
+  top: 5%;
+}
+.bubble-section1:nth-child(2) {
+  left: 15%;
+  top: 60%;
+}
 .bubble-section1:nth-child(3) {
-  left: 40%;
-  top: 8%;
+  left: 18%;
+  top: 12%;
 }
 .bubble-section1:nth-child(4) {
-  left: 40%;
-  top: 80%;
+  left: 5%;
+  top: 70%;
 }
 /* Tablet */
 @media (min-width: 800px) and (max-width: 1023px) {
+  .bubble-section1:nth-child(1) {
+    left: 10%;
+    top: 5%;
+  }
+  .bubble-section1:nth-child(2) {
+    left: 20%;
+    top: 60%;
+  }
   .bubble-section1:nth-child(3) {
     left: 45%;
     top: 10%;
@@ -643,8 +651,16 @@ const downloadCV = () => {
 }
 /* Laptop / Desktop */
 @media (min-width: 1024px) {
+  .bubble-section1:nth-child(1) {
+    left: 10%;
+    top: 5%;
+  }
+  .bubble-section1:nth-child(2) {
+    left: 30%;
+    top: 60%;
+  }
   .bubble-section1:nth-child(3) {
-    left: 40%;
+    left: 45%;
     top: 10%;
   }
   .bubble-section1:nth-child(4) {
