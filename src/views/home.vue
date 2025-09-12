@@ -526,7 +526,7 @@ onBeforeUnmount(() => {
           class="relative bg-white w-full max-w-xl max-h-[70vh] rounded-xl shadow-md shadow-blue-800/20 overflow-hidden"
         >
           <div
-            class="px-12 py-12 overflow-y-auto max-h-[70vh] text-justify hide-scrollbar-to-modal"
+            class="px-7 py-12 md:px-8 md:py-12 lg:px-10 lg:py-12 overflow-y-auto max-h-[70vh] text-justify hide-scrollbar-to-modal"
           >
             <h2 class="text-lg font-bold mb-4">{{ selectedCard.title }}</h2>
 
