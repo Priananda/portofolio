@@ -68,61 +68,61 @@ const defaultTab = ref('Projects')
 const projects = [
   {
     title: 'Ordering Menu & Dashboard Admin on Ikan Bakar Bli Putu',
-    description: '',
+    linkProject: 'https://gitlab.com/kadekpriananda12/website-ibbp.git',
     image: p,
   },
   {
     title: 'Company Profile on Ikan Bakar Bli Putu',
-    description: 'We.',
+    linkProject: 'https://gitlab.com/kadekpriananda12/website-ibbp.git',
     image: p,
   },
   {
-    title: 'Sistem Jinom Resellers',
-    description: 'Solus.',
+    title: 'Jinom Resellers (Internship Front-end Developer)',
+    linkProject: 'https://gitlab.com/kadekpriananda12/jinom_reseller.git',
     image: p,
   },
   {
-    title: 'Sistem TaskList',
-    description: 'We.',
+    title: 'TaskList',
+    linkProject: 'https://gitlab.com/kadekpriananda12/task_list.git',
     image: p,
   },
   {
-    title: 'Sistem Chatting',
-    description: 'We.',
+    title: 'Chatting',
+    linkProject: 'https://gitlab.com/kadekpriananda12/chatting.git',
     image: p,
   },
 ]
 const certificates = [
   {
     title: 'Certificate Internship Front-end Developer on PT Jinom Network Indonesia',
-    description: 'Prog.',
+    linkCertificate: '',
     image: p,
   },
   {
-    title: 'Certificate MBKM Web Developer on PT Amanah Karya Indonesia',
-    description: 'Solus.',
+    title: 'Certificate Web Developer MBKM BootCamp on PT Amanah Karya Indonesia',
+    linkCertificate: '',
     image: p,
   },
   {
     title:
       'Certificate Programmer BNSP (Badan Nasional Sertifikasi Profesi) on Primakara University',
-    description: 'We.',
+    linkCertificate: '',
     image: p,
   },
   {
     title:
       'Certificate PELP TEST (Primakara English Language Proficiency Test) on Primakara University',
-    description: 'We.',
+    linkCertificate: '',
     image: p,
   },
   {
     title: 'Certificate CAREER PREPARATION on Primakara University',
-    description: 'We.',
+    linkCertificate: '',
     image: p,
   },
   {
     title: 'Certificate FCNS (Foresec Certified in Networking Security) on Primakara University',
-    description: 'We.',
+    linkCertificate: '',
     image: p,
   },
 ]
@@ -264,6 +264,7 @@ onBeforeUnmount(() => {
               <li>HTML5</li>
               <li>Slicing UI</li>
               <li>Consume API</li>
+              <li>State Management</li>
             </ul>
           </div>
         </div>
@@ -375,13 +376,25 @@ onBeforeUnmount(() => {
                     <h3 class="mb-5 text-lg text-black font-bold">
                       {{ project.title }}
                     </h3>
-                    <!-- <p class="mb-5 text-md text-gray-800">{{ project.description }}</p> -->
                   </div>
-                  <div class="flex justify-between mt-auto">
+
+                  <!-- Link Project Section -->
+                  <div class="flex flex-col space-y-2">
+                    <p class="text-md text-gray-800">Link Project:</p>
+
+                    <a
+                      :href="project.linkProject"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-md text-blue-800 hover:text-blue-800/90 cursor-pointer break-words underline"
+                    >
+                      {{ project.linkProject }}
+                    </a>
+
                     <button
                       type="button"
                       @click="openModalOnDetail(project)"
-                      class="text-blue-800 hover:text-blue-800/90 text-md cursor-pointer"
+                      class="text-md text-blue-800 hover:text-blue-800/90 cursor-pointer self-start"
                     >
                       Details
                     </button>
@@ -407,16 +420,22 @@ onBeforeUnmount(() => {
                 />
                 <div class="p-6 flex-1 flex flex-col">
                   <div>
-                    <h3 class="mb-3 text-lg text-black font-bold">
+                    <h3 class="mb-5 text-lg text-black font-bold">
                       {{ certificate.title }}
                     </h3>
-                    <p class="mb-5 text-md text-gray-800">{{ certificate.description }}</p>
                   </div>
-                  <div class="flex justify-between mt-auto">
+
+                  <div class="flex flex-col space-y-2">
+                    <p
+                      class="text-md text-blue-800 hover:text-blue-800/90 cursor-pointer break-words"
+                    >
+                      View Certificate
+                    </p>
+
                     <button
                       type="button"
                       @click="openModalOnDetail(certificate)"
-                      class="text-blue-800 hover:text-blue-800/90 text-md cursor-pointer"
+                      class="text-md text-blue-800 hover:text-blue-800/90 cursor-pointer self-start"
                     >
                       Details
                     </button>
@@ -477,7 +496,7 @@ onBeforeUnmount(() => {
             <h3 class="font-medium text-lg text-gray-800">Address</h3>
             <p class="text-md text-gray-800">
               Jalan by pass ngurah rai, jalan merta sari No. 76 Jimbaran, Kec. Kuta Sel., Kabupaten
-              Badung, Bali 80361
+              Badung, Bali 80361.
             </p>
           </div>
         </div>
@@ -495,6 +514,16 @@ onBeforeUnmount(() => {
           </div>
           <div class="mb-6 space-y-2">
             <h3 class="font-medium text-lg text-gray-800">Gitlab</h3>
+            <a
+              href="https://gitlab.com/kadekpriananda12"
+              target="_blank"
+              class="break-words text-md text-blue-800 hover:text-blue-800/90 hover:underline"
+            >
+              https://gitlab.com/kadekpriananda12
+            </a>
+          </div>
+          <div class="mb-6 space-y-2">
+            <h3 class="font-medium text-lg text-gray-800">Linkedln</h3>
             <a
               href="https://gitlab.com/kadekpriananda12"
               target="_blank"
@@ -555,9 +584,9 @@ onBeforeUnmount(() => {
                   pelanggan, pengelolaan inventaris dan supplier.
                 </p>
                 <p class="ml-3">
-                  Informasi Dashboard Admin: Admin dipersilahkan registrasi dan login terlebih
-                  dahulu. Setelah login terdapat dashboard admin yakni, manajemen pesanan pelanggan,
-                  inventaris, supplier, dan profil admin.
+                  Informasi Dashboard Admin: Dalam sistem, admin dipersilahkan registrasi dan login
+                  terlebih dahulu. Setelah login terdapat dashboard admin yakni, manajemen pesanan
+                  pelanggan, inventaris, supplier, dan profil admin.
                 </p>
 
                 <p><strong>3.</strong> Fitur-fitur Pemesanan Menu:</p>
@@ -584,43 +613,221 @@ onBeforeUnmount(() => {
               </div>
             </div>
 
-            <p
+            <div
               class="text-md text-gray-800 leading-relaxed"
               v-else-if="selectedCard.title === 'Company Profile on Ikan Bakar Bli Putu'"
             >
-              Website company profile restoran "Ikan Bakar Bli Putu" untuk menampilkan informasi,
-              menu, lokasi, dan kontak.<br /><br />
-              Fitur: Halaman About, Gallery, Contact, dan navigasi yang responsif.
-            </p>
+              <div class="text-md text-gray-800 space-y-5 leading-relaxed text-md">
+                <p>
+                  <strong>1.</strong> Company Profile: Company Profile ini diperuntukkan untuk umum
+                  maupun pelanggan agar mengetahui tentang restoran Ikan Bakar BliPutu secara online
+                </p>
 
-            <p
+                <p class="ml-3">
+                  Informasi: Dalam sistem company profile ini memuat halaman utama, menu, about,
+                  order online, pada restaurant tersebut. Selain itu pelanggan dapat memesan makanan
+                  dari jarak jauh menggunakan apps yang di integrasikan langsung di dalam company
+                  profile restaurant tersebut.
+                </p>
+
+                <p><strong>2.</strong> Fitur-fitur Company Profile:</p>
+                <ul class="list-disc list-inside ml-3">
+                  <li>Integrasi Super Apps.</li>
+                  <li>Pencarian Menu</li>
+                </ul>
+
+                <p><strong>3.</strong> Alat Pengembangan: HTML, CSS3, dan Javascript.</p>
+              </div>
+            </div>
+
+            <div
               class="text-md text-gray-800 leading-relaxed"
-              v-else-if="selectedCard.title === 'Sistem Jinom Resellers'"
+              v-else-if="selectedCard.title === 'Jinom Resellers (Internship Front-end Developer)'"
             >
-              Aplikasi reseller management untuk PT Jinom Network Indonesia.<br /><br />
-              Fitur: Input produk, manajemen komisi, pelacakan performa reseller, dan laporan
-              bulanan.
-            </p>
+              <div class="text-md text-gray-800 space-y-5 leading-relaxed text-md">
+                <p>
+                  <strong>1.</strong> Jinom Resellers: Jinom Resellers mendukung UMKM internet lokal
+                  yang menyediakan internet ke pelanggan seluruh Indonesia. Jinom reseller ini
+                  diperuntukkan kepada calon reseller untuk menjadi reseller Jinom.
+                </p>
 
-            <p
+                <p class="ml-3">
+                  Informasi Jinom Reseller: Dalam sistem Jinom reseller memiliki informasi lengkap
+                  yang diperuntukkan kepada calon reseller seperti halaman utama, layanan reseller,
+                  ketentuan dan kerjasama, fasilitas dan keuntungan, dukungan reseller, program, dan
+                  kontak. Kemudian untuk dinamisnya terdapat registrasi, login, cek titik koordinat
+                  dengan maps api, menampilkan paket jaringan, detail paket jaringan, proses metode
+                  pembayaran, upload dokumen yang diperlukan, dan mendapatkan dokumen lewat email.
+                </p>
+
+                <p><strong>2.</strong> Fitur-fitur Jinom Reseller:</p>
+                <ul class="list-disc list-inside ml-3">
+                  <li>Halaman Utama</li>
+                  <li>Layanan Reseller</li>
+                  <li>Ketentuan & Kerjasama</li>
+                  <li>Fasilitas & Keuntungan</li>
+                  <li>Dukungan Reseller</li>
+                  <li>Program</li>
+                  <li>Kontak</li>
+                  <li>Registrasi</li>
+                  <li>Login</li>
+                  <li>Cek Tikor (Titik Koordinat)</li>
+                  <li>Menampilkan Paket jaringan</li>
+                  <li>Detail Paket Jaringan</li>
+                  <li>Metode Pembayaran</li>
+                  <li>Registrasi Dokumen</li>
+                </ul>
+
+                <p><strong>3.</strong> Alat Pengembangan: Laravel, MySql, Vue.js, API.</p>
+                <p><strong>4.</strong> Library: Axios dan JWT</p>
+              </div>
+            </div>
+
+            <div
               class="text-md text-gray-800 leading-relaxed"
-              v-else-if="selectedCard.title === 'Sistem TaskList'"
+              v-else-if="selectedCard.title === 'TaskList'"
             >
-              Sistem task management dengan fitur to-do, in-progress, dan done board.<br /><br />
-              Fitur: Drag-and-drop antar kolom, notifikasi deadline, dan user role (admin/user).
-            </p>
+              <div class="text-md text-gray-800 space-y-5 leading-relaxed text-md">
+                <p>
+                  <strong>1.</strong> TaskList: Daftar tugas yang dikerjakan untuk meningkatkan
+                  produktivitas dan memastikan tidak ada tugas yang terlewati.
+                </p>
 
-            <p
+                <p class="ml-3">
+                  Informasi TaskList: Dalam sistem terdapat aktivitas dinamis seperti: proses
+                  registrasi dan login, membuat tugas yang diinginkan dengan menginputkan judul
+                  tugas, deskripsi, tanggal mulai, tanggal selesai, dan status pending progres
+                  selesai serta dapat mengedit dan menghapus tugas. Kemudian terdapat notifikasi
+                  untuk menampilkan daftar tugas baik baru dibuat maupun edit. Selain itu terdapat
+                  profil pengguna yang bertujuan untuk bahwa daftar tugas tersebut memiliki nama
+                  pengguna.
+                </p>
+
+                <p><strong>2.</strong> Fitur-fitur TaskList:</p>
+                <ul class="list-disc list-inside ml-3">
+                  <li>Halaman Utama</li>
+                  <li>Registrasi</li>
+                  <li>Login</li>
+                  <li>CRUD</li>
+                  <li>Notifikasi</li>
+                  <li>Profil Pengguna</li>
+                </ul>
+
+                <p>
+                  <strong>3.</strong> Alat Pengembangan: Laravel, MySql, API, Vue.js, dan Tailwind
+                  CSS.
+                </p>
+                <p><strong>4.</strong> Library: Axios, Pinia, JWT.</p>
+              </div>
+            </div>
+
+            <div
               class="text-md text-gray-800 leading-relaxed"
-              v-else-if="selectedCard.title === 'Sistem Chatting'"
+              v-else-if="selectedCard.title === 'Chatting'"
             >
-              Aplikasi chatting real-time berbasis Vue + Firebase.<br /><br />
-              Fitur: Login Google, pesan real-time, status online, dan grup percakapan.
-            </p>
+              <div class="text-md text-gray-800 space-y-5 leading-relaxed text-md">
+                <p>
+                  <strong>1.</strong> Chatting: Komunikasi antar lawan berbasis teks yang
+                  memungkinkan pengguna untuk saling bertukar pesan secara real-time.
+                </p>
 
-            <p class="text-md text-gray-800 leading-relaxed" v-else>
-              Tidak ada deskripsi untuk project ini.
-            </p>
+                <p class="ml-3">
+                  Informasi Chatting: Dalam sistem terdapat aktivitas dinamis seperti: proses
+                  registrasi, login, dan chat room untuk melakukan satu ruang percakapan.
+                </p>
+
+                <p><strong>2.</strong> Fitur-fitur Chatting:</p>
+                <ul class="list-disc list-inside ml-3">
+                  <li>Halaman Utama</li>
+                  <li>Registrasi</li>
+                  <li>Login</li>
+                  <li>CRUD</li>
+                </ul>
+
+                <p>
+                  <strong>3.</strong> Alat Pengembangan: Express JS, Mongo DB, API, React JS,
+                  Tailwind CSS.
+                </p>
+                <p><strong>4.</strong> Library: Axios, JWT, Socket.IO, dan Redux.</p>
+              </div>
+            </div>
+
+            <div
+              class="text-md text-gray-800 leading-relaxed"
+              v-else-if="
+                selectedCard.title ===
+                'Certificate Internship Front-end Developer on PT Jinom Network Indonesia'
+              "
+            >
+              <div class="text-md text-gray-800 space-y-5 leading-relaxed text-md">
+                <p>
+                  <strong>1.</strong> Internship: Dapat mengikuti Internship selama 4 bulan, devisi
+                  produk bagian front-end developer.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="text-md text-gray-800 leading-relaxed"
+              v-else-if="
+                selectedCard.title ===
+                'Certificate Web Developer MBKM BootCamp on PT Amanah Karya Indonesia'
+              "
+            >
+              <div class="text-md text-gray-800 space-y-5 leading-relaxed text-md">
+                <p>
+                  <strong>1.</strong> Web Developer: Dapat mengikuti mbkm atau bootcamp selama 6
+                  bulan pada bidang web developer.
+                </p>
+              </div>
+            </div>
+            <div
+              class="text-md text-gray-800 leading-relaxed"
+              v-else-if="
+                selectedCard.title ===
+                'Certificate Programmer BNSP (Badan Nasional Sertifikasi Profesi) on Primakara University'
+              "
+            >
+              <div class="text-md text-gray-800 space-y-5 leading-relaxed text-md">
+                <p>
+                  <strong>1.</strong> BNSP: Dapat mengikuti sertifikasi bnsp pada bidang programmer.
+                </p>
+              </div>
+            </div>
+            <div
+              class="text-md text-gray-800 leading-relaxed"
+              v-else-if="
+                selectedCard.title ===
+                'Certificate PELP TEST (Primakara English Language Proficiency Test) on Primakara University'
+              "
+            >
+              <div class="text-md text-gray-800 space-y-5 leading-relaxed text-md">
+                <p><strong>1.</strong> PELP TEST: Dapat mengikuti sertifikasi bahasa inggris.</p>
+              </div>
+            </div>
+            <div
+              class="text-md text-gray-800 leading-relaxed"
+              v-else-if="
+                selectedCard.title === 'Certificate CAREER PREPARATION on Primakara University'
+              "
+            >
+              <div class="text-md text-gray-800 space-y-5 leading-relaxed text-md">
+                <p><strong>1.</strong> CAREER PREPARATION: Dapat mengikuti persiapan kerja.</p>
+              </div>
+            </div>
+            <div
+              class="text-md text-gray-800 leading-relaxed"
+              v-else-if="
+                selectedCard.title ===
+                'Certificate FCNS (Foresec Certified in Networking Security) on Primakara University'
+              "
+            >
+              <div class="text-md text-gray-800 space-y-5 leading-relaxed text-md">
+                <p><strong>1.</strong> FCNS: Dapat mengikuti sertifikasi pada bidang networking.</p>
+              </div>
+            </div>
+
+            <p class="text-md text-gray-800 leading-relaxed" v-else>Tidak ada deskripsi.</p>
           </div>
 
           <button

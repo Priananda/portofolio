@@ -9,8 +9,8 @@ defineProps({
     :class="[
       'px-14 py-4 text-md cursor-pointer rounded-full shadow-md w-full sm:w-auto transition-all',
       isActive
-        ? 'btn-shadow bg-gradient-to-r  from-blue-500 to-indigo-800 hover:from-blue-600 hover:to-indigo-600 text-white font-normal'
-        : 'bg-gradient-to-r from-cyan-700 to-blue-800 text-transparent bg-clip-text font-normal',
+        ? 'btn-shadow text-white font-normal bg-[linear-gradient(to_right,_#3B82F6,_#3730A3)] hover:bg-[linear-gradient(to_right,_#2563EB,_#4F46E5)]'
+        : 'font-normal text-transparent bg-clip-text bg-[linear-gradient(to_right,_#0E7490,_#1D4ED8)]',
     ]"
   >
     <slot />
