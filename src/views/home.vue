@@ -209,12 +209,12 @@ onBeforeUnmount(() => {
     <!-- Konten -->
     <div class="space-y-5" data-aos="fade-up">
       <h2
-        class="text-3xl md:text-4xl lg:text-4xl font-bold text-shadow-sm bg-gradient-to-r from-blue-800 to-indigo-500 text-transparent bg-clip-text"
+        class="text-2xl md:text-4xl lg:text-4xl font-bold text-shadow-sm text-transparent bg-clip-text [-webkit-background-clip:text] bg-[linear-gradient(to_right,_#0E7490,_#1D4ED8)]"
       >
         {{ typeText }}
       </h2>
 
-      <p class="text-lg text-gray-800 leading-8 md:text-justify lg:text-justify">
+      <p class="text-lg text-gray-800 leading-8 text-justify">
         I'm a web developer specializing in building website-based applications. I've worked on
         various projects, including online menu ordering systems, admin dashboard systems, Jinom
         resellers, personal task systems, and more. I'm accustomed to working both in teams and
