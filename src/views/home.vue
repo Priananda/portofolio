@@ -512,6 +512,7 @@ onBeforeUnmount(() => {
               https://github.com/Priananda
             </a>
           </div>
+
           <div class="mb-6 space-y-2">
             <h3 class="font-medium text-lg text-gray-800">Gitlab</h3>
             <a
@@ -522,6 +523,7 @@ onBeforeUnmount(() => {
               https://gitlab.com/kadekpriananda12
             </a>
           </div>
+
           <div class="mb-6 space-y-2">
             <h3 class="font-medium text-lg text-gray-800">Linkedln</h3>
             <a
