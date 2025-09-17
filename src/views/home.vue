@@ -2,7 +2,18 @@
 import { ref, onMounted, nextTick, onBeforeUnmount } from 'vue'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-import p from '@/assets/images/p.jpg'
+import imageProject1 from '@/assets/images/project1.png'
+import imageProject2 from '@/assets/images/project2.png'
+import imageProject3 from '@/assets/images/project3.png'
+import imageProject4 from '@/assets/images/project4.png'
+import imageProject5 from '@/assets/images/project5.png'
+
+import imageCertificate1 from '@/assets/images/certificate1.png'
+import imageCertificate2 from '@/assets/images/certificate2.png'
+import imageCertificate3 from '@/assets/images/certificate3.png'
+import imageCertificate4 from '@/assets/images/certificate4.png'
+import imageCertificate5 from '@/assets/images/certificate5.png'
+
 import profilSection2 from '@/assets/images/foto.png'
 import AllButton from '@/components/button/AllButton.vue'
 import ButtonTab from '@/components/button/ButtonTab.vue'
@@ -10,7 +21,7 @@ import ButtonTab from '@/components/button/ButtonTab.vue'
 // Typing text otomatis
 const textFull = 'Hello, I’m Priananda'
 const typeText = ref('')
-const typingSpeed = 90
+const typingDuration = 90
 
 onMounted(async () => {
   // Typing
@@ -19,7 +30,7 @@ onMounted(async () => {
     if (index < textFull.length) {
       typeText.value += textFull.charAt(index)
       index++
-      setTimeout(type, typingSpeed)
+      setTimeout(type, typingDuration)
     } else {
       // default ke awal
       setTimeout(() => {
@@ -36,9 +47,9 @@ onMounted(async () => {
   AOS.init({
     duration: 900,
     once: false,
-    easing: 'ease-out-cubic',
     offset: 50,
     startEvent: 'load',
+    easing: 'ease-out-cubic',
   })
   AOS.refresh()
 })
@@ -48,13 +59,8 @@ function scrollToSection2() {
   const targetSection2 = document.getElementById('section2')
   targetSection2.scrollIntoView({ behavior: 'smooth' })
 }
-// Fungsi scroll ke section 3
-function scrollToSection3() {
-  const targetSection3 = document.getElementById('section3')
-  targetSection3.scrollIntoView({ behavior: 'smooth' })
-}
 
-// Button project pada section
+// Button project
 const selectedCard = ref(null)
 const openModalOnDetail = (item) => {
   selectedCard.value = item
@@ -69,61 +75,55 @@ const projects = [
   {
     title: 'Ordering Menu & Dashboard Admin on Ikan Bakar Bli Putu',
     linkProject: 'https://gitlab.com/kadekpriananda12/website-ibbp.git',
-    image: p,
+    image: imageProject1,
   },
   {
     title: 'Company Profile on Ikan Bakar Bli Putu',
     linkProject: 'https://gitlab.com/kadekpriananda12/website-ibbp.git',
-    image: p,
+    image: imageProject2,
   },
   {
     title: 'Jinom Resellers (Internship Front-end Developer)',
     linkProject: 'https://gitlab.com/kadekpriananda12/jinom_reseller.git',
-    image: p,
+    image: imageProject3,
   },
   {
     title: 'TaskList',
     linkProject: 'https://gitlab.com/kadekpriananda12/task_list.git',
-    image: p,
+    image: imageProject4,
   },
   {
     title: 'Chatting',
     linkProject: 'https://gitlab.com/kadekpriananda12/chatting.git',
-    image: p,
+    image: imageProject5,
   },
 ]
 const certificates = [
   {
     title: 'Certificate Internship Front-end Developer on PT Jinom Network Indonesia',
     linkCertificate: '',
-    image: p,
+    image: imageCertificate1,
   },
   {
     title: 'Certificate Web Developer MBKM BootCamp on PT Amanah Karya Indonesia',
     linkCertificate: '',
-    image: p,
+    image: imageCertificate2,
   },
   {
     title:
       'Certificate Programmer BNSP (Badan Nasional Sertifikasi Profesi) on Primakara University',
     linkCertificate: '',
-    image: p,
-  },
-  {
-    title:
-      'Certificate PELP TEST (Primakara English Language Proficiency Test) on Primakara University',
-    linkCertificate: '',
-    image: p,
+    image: imageCertificate3,
   },
   {
     title: 'Certificate CAREER PREPARATION on Primakara University',
     linkCertificate: '',
-    image: p,
+    image: imageCertificate4,
   },
   {
     title: 'Certificate FCNS (Foresec Certified in Networking Security) on Primakara University',
     linkCertificate: '',
-    image: p,
+    image: imageCertificate5,
   },
 ]
 
@@ -150,7 +150,6 @@ const scrollPage = () => {
   } else {
     visibleName.value = true
   }
-  // scrollY = window.scrollY
 }
 
 onMounted(() => {
@@ -209,7 +208,7 @@ onBeforeUnmount(() => {
     <!-- Konten -->
     <div class="space-y-5" data-aos="fade-up">
       <h2
-        class="text-2xl md:text-4xl lg:text-4xl font-bold text-shadow-sm text-transparent bg-clip-text [-webkit-background-clip:text] bg-[linear-gradient(to_right,_#0E7490,_#1D4ED8)]"
+        class="text-3xl md:text-4xl lg:text-4xl font-bold text-shadow-sm text-transparent bg-clip-text [-webkit-background-clip:text] bg-[linear-gradient(to_right,_#3B82F6,_#3730A3)]"
       >
         {{ typeText }}
       </h2>
@@ -252,7 +251,7 @@ onBeforeUnmount(() => {
         <div data-aos="fade-up" data-aos-delay="200" class="border-wrapper bg-white flex flex-col">
           <div class="p-6 flex flex-col items-center justify-center space-y-5">
             <h3
-              class="text-2xl font-bold text-center bg-gradient-to-r from-cyan-700 to-blue-800 text-transparent bg-clip-text"
+              class="text-2xl font-bold text-center text-transparent bg-clip-text [-webkit-background-clip:text] bg-[linear-gradient(to_right,_#3B82F6,_#3730A3)]"
             >
               Front-end
             </h3>
@@ -273,7 +272,7 @@ onBeforeUnmount(() => {
         <div data-aos="fade-up" data-aos-delay="400" class="border-wrapper bg-white flex flex-col">
           <div class="p-6 flex flex-col items-center justify-center space-y-5">
             <h3
-              class="text-2xl font-bold text-center bg-gradient-to-r from-cyan-700 to-blue-800 text-transparent bg-clip-text"
+              class="text-2xl font-bold text-center text-transparent bg-clip-text [-webkit-background-clip:text] bg-[linear-gradient(to_right,_#3B82F6,_#3730A3)]"
             >
               Back-end
             </h3>
@@ -292,7 +291,7 @@ onBeforeUnmount(() => {
         <div data-aos="fade-up" data-aos-delay="600" class="border-wrapper bg-white flex flex-col">
           <div class="p-6 flex flex-col items-center justify-center space-y-5">
             <h3
-              class="text-2xl font-bold text-center bg-gradient-to-r from-cyan-700 to-blue-800 text-transparent bg-clip-text"
+              class="text-2xl font-bold text-center text-transparent bg-clip-text [-webkit-background-clip:text] bg-[linear-gradient(to_right,_#3B82F6,_#3730A3)]"
             >
               Tools & Workflow
             </h3>
@@ -370,7 +369,7 @@ onBeforeUnmount(() => {
                 :data-aos="'fade-up'"
                 :data-aos-delay="(index + 1) * 200"
               >
-                <img :src="project.image" :alt="project.title" class="h-56 w-full object-cover" />
+                <img :src="project.image" :alt="project.title" class="h-56 w-full object-contain" />
                 <div class="p-6 flex-1 flex flex-col">
                   <div>
                     <h3 class="mb-5 text-lg text-black font-bold">
@@ -416,7 +415,7 @@ onBeforeUnmount(() => {
                 <img
                   :src="certificate.image"
                   :alt="certificate.title"
-                  class="h-56 w-full object-cover"
+                  class="h-56 w-full object-contain"
                 />
                 <div class="p-6 flex-1 flex flex-col">
                   <div>
@@ -426,11 +425,11 @@ onBeforeUnmount(() => {
                   </div>
 
                   <div class="flex flex-col space-y-2">
-                    <p
+                    <!-- <p
                       class="text-md text-blue-800 hover:text-blue-800/90 cursor-pointer break-words"
                     >
                       View Certificate
-                    </p>
+                    </p> -->
 
                     <button
                       type="button"
@@ -527,11 +526,11 @@ onBeforeUnmount(() => {
           <div class="mb-6 space-y-2">
             <h3 class="font-medium text-lg text-gray-800">Linkedln</h3>
             <a
-              href="https://gitlab.com/kadekpriananda12"
+              href="https://www.linkedin.com/in/i-kadek-priananda-37573934b/"
               target="_blank"
               class="break-words text-md text-blue-800 hover:text-blue-800/90 hover:underline"
             >
-              https://gitlab.com/kadekpriananda12
+              https://www.linkedin.com/in/i-kadek-priananda-37573934b/
             </a>
           </div>
         </div>
@@ -609,8 +608,7 @@ onBeforeUnmount(() => {
                 </ul>
 
                 <p>
-                  <strong>5.</strong> Alat Pengembangan: Laravel, MySql, CSS3, Javascript, dan
-                  Bootstrap.
+                  <strong>5.</strong> TechStack: Laravel, MySql, CSS3, Javascript, dan Bootstrap.
                 </p>
               </div>
             </div>
@@ -638,7 +636,7 @@ onBeforeUnmount(() => {
                   <li>Pencarian Menu</li>
                 </ul>
 
-                <p><strong>3.</strong> Alat Pengembangan: HTML, CSS3, dan Javascript.</p>
+                <p><strong>3.</strong> Tech Stack: HTML, CSS3, dan Javascript.</p>
               </div>
             </div>
 
@@ -680,8 +678,9 @@ onBeforeUnmount(() => {
                   <li>Registrasi Dokumen</li>
                 </ul>
 
-                <p><strong>3.</strong> Alat Pengembangan: Laravel, MySql, Vue.js, API.</p>
-                <p><strong>4.</strong> Library: Axios dan JWT</p>
+                <p><strong>3.</strong> Tech Stack: Laravel, MySql, Vue.js.</p>
+                <p><strong>4.</strong> Interface: REST API dan Consume API</p>
+                <p><strong>5.</strong> Library: Axios dan JWT</p>
               </div>
             </div>
 
@@ -715,11 +714,9 @@ onBeforeUnmount(() => {
                   <li>Profil Pengguna</li>
                 </ul>
 
-                <p>
-                  <strong>3.</strong> Alat Pengembangan: Laravel, MySql, API, Vue.js, dan Tailwind
-                  CSS.
-                </p>
-                <p><strong>4.</strong> Library: Axios, Pinia, JWT.</p>
+                <p><strong>3.</strong> Tech Stack: Laravel, MySql, Vue.js, dan Tailwind CSS.</p>
+                <p><strong>4.</strong> Interface: REST API dan Consume API</p>
+                <p><strong>5.</strong> Library: Axios, Pinia, JWT.</p>
               </div>
             </div>
 
@@ -746,11 +743,9 @@ onBeforeUnmount(() => {
                   <li>CRUD</li>
                 </ul>
 
-                <p>
-                  <strong>3.</strong> Alat Pengembangan: Express JS, Mongo DB, API, React JS,
-                  Tailwind CSS.
-                </p>
-                <p><strong>4.</strong> Library: Axios, JWT, Socket.IO, dan Redux.</p>
+                <p><strong>3.</strong> Tech Stack: Express JS, Mongo DB, React JS, Tailwind CSS.</p>
+                <p><strong>4.</strong> Interface: REST API dan Consume API</p>
+                <p><strong>5.</strong> Library: Axios, JWT, Socket.IO, dan Redux.</p>
               </div>
             </div>
 
