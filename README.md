@@ -1,3 +1,26 @@
+# Chatting
+
+Deskripsi: Portfolio I Kadek Priananda berbasis website yang terdapat halaman utama, deskripsi singkat, keahlian, proyek-proyek, dan kontak.
+
+## Fitur-Fitur
+
+- Download CV
+
+## Tech Stack Front-end
+
+- **Vue JS** = Web framework
+- **Tailwind CSS** = Styling halaman
+
+## Clone Project
+
+````bash
+ git clone https://gitlab.com/kadekpriananda12/portofolio.git
+ cd portofolio
+
+
+
+
+
 # portofolio
 
 This template should help get you started developing with Vue 3 in Vite.
@@ -14,3 +37,29 @@ See [Vite Configuration Reference](https://vite.dev/config/).
 
 ```sh
 npm install
+```
+
+### Compile and Hot-Reload for Development
+
+```sh
+npm run dev
+```
+
+### Compile and Minify for Production
+
+```sh
+npm run build
+```
+
+### Run Unit Tests with [Vitest](https://vitest.dev/)
+
+```sh
+npm run test:unit
+```
+
+### Lint with [ESLint](https://eslint.org/)
+
+```sh
+npm run lint
+```
+````
