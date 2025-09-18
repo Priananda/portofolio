@@ -196,7 +196,6 @@ onBeforeUnmount(() => {
     id="section2"
     class="container mx-auto scroll-mt-20 bg-white mt-24 md:-mt-40 lg:mt-0 px-5 md:px-2 lg:px-14 py-10 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 items-center gap-16"
   >
-    <!-- Gambar -->
     <div class="flex justify-center" data-aos="fade-down">
       <img
         :src="profilSection2"
@@ -205,7 +204,6 @@ onBeforeUnmount(() => {
       />
     </div>
 
-    <!-- Konten -->
     <div class="space-y-5" data-aos="fade-up">
       <h2
         class="text-3xl md:text-4xl lg:text-4xl font-bold text-shadow-sm text-transparent bg-clip-text [-webkit-background-clip:text] bg-[linear-gradient(to_right,_#3B82F6,_#3730A3)]"
@@ -213,7 +211,7 @@ onBeforeUnmount(() => {
         {{ typeText }}
       </h2>
 
-      <p class="text-lg text-gray-800 leading-8 text-justify">
+      <p class="text-justify leading-8 text-gray-800 text-lg break-words hyphens-auto">
         I'm a web developer specializing in building website-based applications. I've worked on
         various projects, including online menu ordering systems, admin dashboard systems, Jinom
         resellers, personal task systems, and more. I'm accustomed to working both in teams and
@@ -564,7 +562,7 @@ onBeforeUnmount(() => {
             <div
               v-if="selectedCard.title === 'Ordering Menu & Dashboard Admin on Ikan Bakar Bli Putu'"
             >
-              <div class="text-md text-gray-800 space-y-5 leading-relaxed text-md">
+              <div class="text-md text-gray-800 space-y-5 leading-8 break-words hyphens-auto">
                 <p>
                   <strong>1.</strong> Pemesanan Menu: Pemesanan menu secara online diperuntukkan
                   oleh pelanggan untuk mempermudah proses pemesanan menu secara online.
@@ -598,26 +596,61 @@ onBeforeUnmount(() => {
                   <li>Keranjang (Cart).</li>
                   <li>Billing Data Pelanggan.</li>
                 </ul>
+
                 <p><strong>4.</strong> Fitur-fitur Dashboard Admin:</p>
                 <ul class="list-disc list-inside ml-3">
-                  <li>Autentikasi Registrasi dan Login (Admin).</li>
+                  <li>Autentikasi Registrasi danLogin serta logout (Admin) .</li>
                   <li>Manajemen Pesanan Pelanggan.</li>
                   <li>Manajemen Inventaris.</li>
                   <li>Manajemen Supplier.</li>
                   <li>Profil Admin.</li>
                 </ul>
 
+                <p><strong>5.</strong> Jobdesk pada fitur Pemesanan Menu:</p>
+                <ul class="list-disc list-inside ml-3">
+                  <li>
+                    Mengimplementasikan sistem pemesanan berbasis QRCode scanning yang memungkinkan
+                    pelanggan melakukan scan di setiap meja.
+                  </li>
+                  <li>Mengimplementasikan form input data pelanggan secara dinamis.</li>
+                  <li>
+                    Menampilkan daftar makanan dan minuman secara dinamis yang dapat ditambahkan ke
+                    dalam keranjang.
+                  </li>
+                  <li>
+                    Mengembangkan fitur keranjang (cart) yang memungkinkan pelanggan mengelola item
+                    sebelum checkout.
+                  </li>
+                  <li>
+                    Menghasilkan billing otomatis yang menampilkan detail pelanggan dan pesanan,
+                    serta menghubungkannya ke sistem restoran.
+                  </li>
+                </ul>
+                <p><strong>6.</strong> Jobdesk pada fitur Dashboard Admin:</p>
+                <ul class="list-disc list-inside ml-3">
+                  <li>
+                    Mengimplementasikan sistem autentikasi admin, termasuk registrasi, login, dan
+                    logout menggunakan Laravel.
+                  </li>
+                  <li>
+                    Mengembangkan halaman dashboard untuk manajemen pesanan pelanggan dan akumulasi
+                    total bahan.
+                  </li>
+                  <li>
+                    Membangun manajemen inventaris dan supplier dengan fitur CRUD (Create, Read,
+                    Update, Delete).
+                  </li>
+                  <li>Membuat halaman profil admin untuk informasi pribadi.</li>
+                </ul>
+
                 <p>
-                  <strong>5.</strong> TechStack: Laravel, MySql, CSS3, Javascript, dan Bootstrap.
+                  <strong>7.</strong> Tech Stack: Laravel, MySql, CSS3, Javascript, dan Bootstrap.
                 </p>
               </div>
             </div>
 
-            <div
-              class="text-md text-gray-800 leading-relaxed"
-              v-else-if="selectedCard.title === 'Company Profile on Ikan Bakar Bli Putu'"
-            >
-              <div class="text-md text-gray-800 space-y-5 leading-relaxed text-md">
+            <div v-else-if="selectedCard.title === 'Company Profile on Ikan Bakar Bli Putu'">
+              <div class="text-md text-gray-800 space-y-5 leading-relaxed break-words hyphens-auto">
                 <p>
                   <strong>1.</strong> Company Profile: Company Profile ini diperuntukkan untuk umum
                   maupun pelanggan agar mengetahui tentang restoran Ikan Bakar BliPutu secara online
@@ -632,23 +665,47 @@ onBeforeUnmount(() => {
 
                 <p><strong>2.</strong> Fitur-fitur Company Profile:</p>
                 <ul class="list-disc list-inside ml-3">
+                  <li>Halaman utama.</li>
+                  <li>Halaman Menu.</li>
+                  <li>Halaman About.</li>
+                  <li>Order Online.</li>
+                  <li>Pencarian Menu.</li>
                   <li>Integrasi Super Apps.</li>
-                  <li>Pencarian Menu</li>
+                </ul>
+                <p><strong>3.</strong> Jobdesk pada fitur Company Profile:</p>
+                <ul class="list-disc list-inside ml-3">
+                  <li>
+                    Membangun halaman utama sebagai landing page yang menampilkan informasi umum
+                    restoran.
+                  </li>
+                  <li>
+                    Mengembangkan halaman menu yang menampilkan daftar makanan dan minuman secara
+                    responsif.
+                  </li>
+                  <li>Mendesain halaman About untuk menjelaskan profil restoran.</li>
+                  <li>Mengintegrasikan fitur Order Online pada layanan Super Apps.</li>
+                  <li>
+                    Menambahkan fitur redirect ke WhatsApp untuk memudahkan pelanggan menghubungi
+                    restoran secara langsung.
+                  </li>
+                  <li>Menerapkan fitur pencarian menu berbasis kata kunci.</li>
                 </ul>
 
-                <p><strong>3.</strong> Tech Stack: HTML, CSS3, dan Javascript.</p>
+                <p><strong>4.</strong> Tech Stack: HTML, CSS3, dan Javascript.</p>
               </div>
             </div>
 
             <div
-              class="text-md text-gray-800 leading-relaxed"
               v-else-if="selectedCard.title === 'Jinom Resellers (Internship Front-end Developer)'"
             >
-              <div class="text-md text-gray-800 space-y-5 leading-relaxed text-md">
+              <div class="text-md text-gray-800 space-y-5 leading-relaxed break-words hyphens-auto">
                 <p>
                   <strong>1.</strong> Jinom Resellers: Jinom Resellers mendukung UMKM internet lokal
                   yang menyediakan internet ke pelanggan seluruh Indonesia. Jinom reseller ini
                   diperuntukkan kepada calon reseller untuk menjadi reseller Jinom.
+                  <span class="text-blue-800 hover:text-blue-800/90 hover:underline"
+                    >devresellers.jinom.ai</span
+                  >
                 </p>
 
                 <p class="ml-3">
@@ -662,33 +719,63 @@ onBeforeUnmount(() => {
 
                 <p><strong>2.</strong> Fitur-fitur Jinom Reseller:</p>
                 <ul class="list-disc list-inside ml-3">
-                  <li>Halaman Utama</li>
-                  <li>Layanan Reseller</li>
-                  <li>Ketentuan & Kerjasama</li>
-                  <li>Fasilitas & Keuntungan</li>
-                  <li>Dukungan Reseller</li>
-                  <li>Program</li>
-                  <li>Kontak</li>
-                  <li>Registrasi</li>
-                  <li>Login</li>
-                  <li>Cek Tikor (Titik Koordinat)</li>
-                  <li>Menampilkan Paket jaringan</li>
-                  <li>Detail Paket Jaringan</li>
-                  <li>Metode Pembayaran</li>
-                  <li>Registrasi Dokumen</li>
+                  <li>Halaman Utama.</li>
+                  <li>Layanan Reseller.</li>
+                  <li>Ketentuan & Kerjasama.</li>
+                  <li>Fasilitas & Keuntungan.</li>
+                  <li>Dukungan Reseller.</li>
+                  <li>Program.</li>
+                  <li>Kontak.</li>
+                  <li>Registrasi.</li>
+                  <li>OTP.</li>
+                  <li>Login.</li>
+                  <li>Logout.</li>
+                  <li>Cek Tikor (Titik Koordinat).</li>
+                  <li>Menampilkan Paket jaringan.</li>
+                  <li>Jangkauan Paket jaringan antara reseller dan calon pelanggan.</li>
+                  <li>Detail Paket Jaringan.</li>
+                  <li>Metode Pembayaran.</li>
+                  <li>Registrasi Dokumen Perorangan.</li>
+                  <li>Registrasi Dokumen Perseroan.</li>
+                  <li>Registrasi Dokumen PT.</li>
+                  <li>Registrasi Dokumen CV.</li>
+                </ul>
+                <p><strong>3.</strong> Jobdesk pada fitur Jinom Reseller:</p>
+                <ul class="list-disc list-inside ml-3">
+                  <li>
+                    Slicing UI halaman utama dan seluruh halaman informasi seperti layanan reseller,
+                    ketentuan dan kerjasama, fasilitas dan keuntungan, program, dan kontak dengan
+                    tampilan responsif.
+                  </li>
+                  <li>
+                    Slicing UI dan Consume api halaman registrasi dan login reseller termasuk proses
+                    verfifikasi OTP.
+                  </li>
+                  <li>Slicing UI dan Consume api halaman logout.</li>
+                  <li>
+                    Slicing UI dan Consume api halaman pengecekan titik koordinat lokasi menggunakan
+                    Geolocation Maps API untuk mengetahui cakupan area anatra reseller dan
+                    pelanggan.
+                  </li>
+                  <li>
+                    Slicing UI dan Consume api halaman paket jaringan dan detail paket jaringan
+                    secara dinamis.
+                  </li>
+                  <li>Slicing UI dan Consume api metode pembayaran secara online.</li>
+                  <li>
+                    Slicing UI dan Consume api formulir registrasi dokumen untuk berbagai jenis
+                    entitas seperti perorangan, perseroan, PT, dan CV.
+                  </li>
                 </ul>
 
-                <p><strong>3.</strong> Tech Stack: Laravel, MySql, Vue.js.</p>
-                <p><strong>4.</strong> Interface: REST API dan Consume API</p>
-                <p><strong>5.</strong> Library: Axios dan JWT</p>
+                <p><strong>4.</strong> Tech Stack: Laravel, MySql, Vue.js, dan Tailwind CSS.</p>
+                <p><strong>5.</strong> Interface: REST API dan Consume API.</p>
+                <p><strong>6.</strong> Library: Axios dan JWT.</p>
               </div>
             </div>
 
-            <div
-              class="text-md text-gray-800 leading-relaxed"
-              v-else-if="selectedCard.title === 'TaskList'"
-            >
-              <div class="text-md text-gray-800 space-y-5 leading-relaxed text-md">
+            <div v-else-if="selectedCard.title === 'TaskList'">
+              <div class="text-md text-gray-800 space-y-5 leading-relaxed break-words hyphens-auto">
                 <p>
                   <strong>1.</strong> TaskList: Daftar tugas yang dikerjakan untuk meningkatkan
                   produktivitas dan memastikan tidak ada tugas yang terlewati.
@@ -706,25 +793,42 @@ onBeforeUnmount(() => {
 
                 <p><strong>2.</strong> Fitur-fitur TaskList:</p>
                 <ul class="list-disc list-inside ml-3">
-                  <li>Halaman Utama</li>
-                  <li>Registrasi</li>
-                  <li>Login</li>
-                  <li>CRUD</li>
-                  <li>Notifikasi</li>
-                  <li>Profil Pengguna</li>
+                  <li>Halaman Utama.</li>
+                  <li>Registrasi.</li>
+                  <li>Login.</li>
+                  <li>Logout.</li>
+                  <li>CRUD.</li>
+                  <li>Notifikasi.</li>
+                  <li>Profil Pengguna.</li>
+                  <li>Pencarian nama tugas.</li>
+                </ul>
+                <p><strong>3.</strong> Jobdesk pada fitur TaskList:</p>
+                <ul class="list-disc list-inside ml-3">
+                  <li>Membangun halaman utama yang menampilkan daftar tugas.</li>
+                  <li>
+                    Mengimplementasikan halaman registrasi, login, dan logout menggunakan
+                    autentikasi berbasis token (JWT).
+                  </li>
+                  <li>
+                    Mengembangkan CRUD (Create, Read, Update, Delete) untuk pengelolaan tugas oleh
+                    pengguna.
+                  </li>
+                  <li>Menerapkan sistem notifikasi untuk status tugas.</li>
+                  <li>Membuat halaman profil pengguna untuk menampilkan data pemilik tugas.</li>
+                  <li>
+                    Mengintegrasikan fitur pencarian nama tugas untuk memudahkan pengguna menemukan
+                    tugas tertentu.
+                  </li>
                 </ul>
 
-                <p><strong>3.</strong> Tech Stack: Laravel, MySql, Vue.js, dan Tailwind CSS.</p>
-                <p><strong>4.</strong> Interface: REST API dan Consume API</p>
-                <p><strong>5.</strong> Library: Axios, Pinia, JWT.</p>
+                <p><strong>4.</strong> Tech Stack: Laravel, MySql, Vue.js, dan Tailwind CSS.</p>
+                <p><strong>5.</strong> Interface: REST API dan Consume API.</p>
+                <p><strong>6.</strong> Library: Axios, Pinia, JWT.</p>
               </div>
             </div>
 
-            <div
-              class="text-md text-gray-800 leading-relaxed"
-              v-else-if="selectedCard.title === 'Chatting'"
-            >
-              <div class="text-md text-gray-800 space-y-5 leading-relaxed text-md">
+            <div v-else-if="selectedCard.title === 'Chatting'">
+              <div class="text-md text-gray-800 space-y-5 leading-relaxed break-words hyphens-auto">
                 <p>
                   <strong>1.</strong> Chatting: Komunikasi antar lawan berbasis teks yang
                   memungkinkan pengguna untuk saling bertukar pesan secara real-time.
@@ -737,26 +841,46 @@ onBeforeUnmount(() => {
 
                 <p><strong>2.</strong> Fitur-fitur Chatting:</p>
                 <ul class="list-disc list-inside ml-3">
-                  <li>Halaman Utama</li>
-                  <li>Registrasi</li>
-                  <li>Login</li>
-                  <li>CRUD</li>
+                  <li>Halaman Utama.</li>
+                  <li>Registrasi.</li>
+                  <li>Login.</li>
+                  <li>CRUD.</li>
+                  <li>Percakapan 1 lawan 1.</li>
+                  <li>Profil Pengguna.</li>
+                  <li>Profil lawan pengguna.</li>
+                </ul>
+                <p><strong>3.</strong> Jobdesk pada fitur TaskList:</p>
+                <ul class="list-disc list-inside ml-3">
+                  <li>Membangun halaman utama yang menampilkan daftar tugas.</li>
+                  <li>
+                    Mengimplementasikan halaman registrasi, login, dan logout menggunakan
+                    autentikasi berbasis token (JWT).
+                  </li>
+                  <li>
+                    Mengembangkan chatting satu lawan satu secara real-time menggunakan Socket.IO.
+                  </li>
+                  <li>
+                    Mengembangkan CRUD (Create, Read, Update, Delete) untuk pengelolaan data antar
+                    pesan.
+                  </li>
+                  <li>
+                    Mengembangkan profil pengguna dan profil lawan bicara dalam ruang percakapan.
+                  </li>
                 </ul>
 
-                <p><strong>3.</strong> Tech Stack: Express JS, Mongo DB, React JS, Tailwind CSS.</p>
-                <p><strong>4.</strong> Interface: REST API dan Consume API</p>
-                <p><strong>5.</strong> Library: Axios, JWT, Socket.IO, dan Redux.</p>
+                <p><strong>4.</strong> Tech Stack: Express JS, Mongo DB, React JS, Tailwind CSS.</p>
+                <p><strong>5.</strong> Interface: REST API dan Consume API.</p>
+                <p><strong>6.</strong> Library: Axios, JWT, Socket.IO, dan Redux.</p>
               </div>
             </div>
 
             <div
-              class="text-md text-gray-800 leading-relaxed"
               v-else-if="
                 selectedCard.title ===
                 'Certificate Internship Front-end Developer on PT Jinom Network Indonesia'
               "
             >
-              <div class="text-md text-gray-800 space-y-5 leading-relaxed text-md">
+              <div class="text-md text-gray-800 space-y-5 leading-relaxed break-words hyphens-auto">
                 <p>
                   <strong>1.</strong> Internship: Dapat mengikuti Internship selama 4 bulan, devisi
                   produk bagian front-end developer.
@@ -765,13 +889,12 @@ onBeforeUnmount(() => {
             </div>
 
             <div
-              class="text-md text-gray-800 leading-relaxed"
               v-else-if="
                 selectedCard.title ===
                 'Certificate Web Developer MBKM BootCamp on PT Amanah Karya Indonesia'
               "
             >
-              <div class="text-md text-gray-800 space-y-5 leading-relaxed text-md">
+              <div class="text-md text-gray-800 space-y-5 leading-relaxed break-words hyphens-auto">
                 <p>
                   <strong>1.</strong> Web Developer: Dapat mengikuti mbkm atau bootcamp selama 6
                   bulan pada bidang web developer.
@@ -779,47 +902,33 @@ onBeforeUnmount(() => {
               </div>
             </div>
             <div
-              class="text-md text-gray-800 leading-relaxed"
               v-else-if="
                 selectedCard.title ===
                 'Certificate Programmer BNSP (Badan Nasional Sertifikasi Profesi) on Primakara University'
               "
             >
-              <div class="text-md text-gray-800 space-y-5 leading-relaxed text-md">
+              <div class="text-md text-gray-800 space-y-5 leading-relaxed break-words hyphens-auto">
                 <p>
                   <strong>1.</strong> BNSP: Dapat mengikuti sertifikasi bnsp pada bidang programmer.
                 </p>
               </div>
             </div>
             <div
-              class="text-md text-gray-800 leading-relaxed"
-              v-else-if="
-                selectedCard.title ===
-                'Certificate PELP TEST (Primakara English Language Proficiency Test) on Primakara University'
-              "
-            >
-              <div class="text-md text-gray-800 space-y-5 leading-relaxed text-md">
-                <p><strong>1.</strong> PELP TEST: Dapat mengikuti sertifikasi bahasa inggris.</p>
-              </div>
-            </div>
-            <div
-              class="text-md text-gray-800 leading-relaxed"
               v-else-if="
                 selectedCard.title === 'Certificate CAREER PREPARATION on Primakara University'
               "
             >
-              <div class="text-md text-gray-800 space-y-5 leading-relaxed text-md">
+              <div class="text-md text-gray-800 space-y-5 leading-relaxed break-words hyphens-auto">
                 <p><strong>1.</strong> CAREER PREPARATION: Dapat mengikuti persiapan kerja.</p>
               </div>
             </div>
             <div
-              class="text-md text-gray-800 leading-relaxed"
               v-else-if="
                 selectedCard.title ===
                 'Certificate FCNS (Foresec Certified in Networking Security) on Primakara University'
               "
             >
-              <div class="text-md text-gray-800 space-y-5 leading-relaxed text-md">
+              <div class="text-md text-gray-800 space-y-5 leading-relaxed break-words hyphens-auto">
                 <p><strong>1.</strong> FCNS: Dapat mengikuti sertifikasi pada bidang networking.</p>
               </div>
             </div>
