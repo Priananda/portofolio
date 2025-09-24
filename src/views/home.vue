@@ -87,11 +87,11 @@ const projects = [
     linkProject: 'https://gitlab.com/kadekpriananda12/jinom_reseller.git',
     image: imageProject3,
   },
-  {
-    title: 'TaskList',
-    linkProject: 'https://gitlab.com/kadekpriananda12/task_list.git',
-    image: imageProject4,
-  },
+  // {
+  //   title: 'TaskList',
+  //   linkProject: 'https://gitlab.com/kadekpriananda12/task_list.git',
+  //   image: imageProject4,
+  // },
   {
     title: 'Chatting',
     linkProject: 'https://gitlab.com/kadekpriananda12/chatting.git',
@@ -774,7 +774,7 @@ onBeforeUnmount(() => {
               </div>
             </div>
 
-            <div v-else-if="selectedCard.title === 'TaskList'">
+            <!-- <div v-else-if="selectedCard.title === 'TaskList'">
               <div class="text-md text-gray-800 space-y-5 leading-relaxed break-words hyphens-auto">
                 <p>
                   <strong>1.</strong> TaskList: Daftar tugas yang dikerjakan untuk meningkatkan
@@ -825,7 +825,7 @@ onBeforeUnmount(() => {
                 <p><strong>5.</strong> Interface: REST API dan Consume API.</p>
                 <p><strong>6.</strong> Library: Axios, Pinia, JWT.</p>
               </div>
-            </div>
+            </div> -->
 
             <div v-else-if="selectedCard.title === 'Chatting'">
               <div class="text-md text-gray-800 space-y-5 leading-relaxed break-words hyphens-auto">
