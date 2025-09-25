@@ -661,6 +661,7 @@ onBeforeUnmount(() => {
                     serta menghubungkannya ke sistem restoran.
                   </li>
                 </ul>
+
                 <p><strong>6.</strong> Jobdesk pada fitur Dashboard Admin:</p>
                 <ul class="list-disc list-inside ml-3">
                   <li>
