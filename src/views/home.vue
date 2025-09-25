@@ -254,14 +254,10 @@ onBeforeUnmount(() => {
               Front-end
             </h3>
             <ul class="grid grid-cols-2 text-gray-800 text-md list-disc list-inside gap-3">
-              <li>Vue.js</li>
-              <li>Next.js</li>
-              <li>React.js</li>
-              <li>Vanilla JS</li>
               <li>HTML5</li>
-              <li>Slicing UI</li>
-              <li>Consume API</li>
-              <li>State Management</li>
+              <li>Vue.js</li>
+              <li>React.js</li>
+              <li>Next.js</li>
             </ul>
           </div>
         </div>
@@ -277,28 +273,6 @@ onBeforeUnmount(() => {
             <ul class="grid grid-cols-2 text-gray-800 text-md list-disc list-inside gap-3">
               <li>Laravel</li>
               <li>Express.js</li>
-              <li>REST API</li>
-              <li>RESTful API</li>
-              <li>MySQL</li>
-              <li>PostgreSQL</li>
-              <li>MongoDB</li>
-            </ul>
-          </div>
-        </div>
-        <!-- Tools -->
-        <div data-aos="fade-up" data-aos-delay="600" class="border-wrapper bg-white flex flex-col">
-          <div class="p-6 flex flex-col items-center justify-center space-y-5">
-            <h3
-              class="text-2xl font-bold text-center text-transparent bg-clip-text [-webkit-background-clip:text] bg-[linear-gradient(to_right,_#3B82F6,_#3730A3)]"
-            >
-              Tools & Workflow
-            </h3>
-            <ul class="grid grid-cols-2 text-gray-800 text-md list-disc list-inside gap-3">
-              <li class="col-span-1">Github</li>
-              <li class="col-span-1">Gitlab</li>
-              <li class="col-span-1">VS Code</li>
-              <li class="col-span-1">Postman</li>
-              <li class="col-span-1">Docker</li>
             </ul>
           </div>
         </div>
@@ -312,11 +286,72 @@ onBeforeUnmount(() => {
               Styling Web
             </h3>
             <ul class="grid grid-cols-2 text-gray-800 text-md list-disc list-inside gap-3">
-              <li>Responsive</li>
+              <li>CSS3</li>
               <li>Tailwind CSS</li>
               <li>Bootstrap</li>
-              <li>Element UI</li>
-              <li>CSS3</li>
+              <li>Responsive</li>
+            </ul>
+          </div>
+        </div>
+        <!-- State Management -->
+        <div data-aos="fade-up" data-aos-delay="200" class="border-wrapper bg-white flex flex-col">
+          <div class="p-6 flex flex-col items-center justify-center space-y-5">
+            <h3
+              class="text-2xl font-bold text-center bg-gradient-to-r from-cyan-700 to-blue-800 text-transparent bg-clip-text"
+            >
+              State Management
+            </h3>
+            <ul class="grid grid-cols-2 text-gray-800 text-md list-disc list-inside gap-3">
+              <li>Redux</li>
+              <li>Pinia</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Database -->
+        <div data-aos="fade-up" data-aos-delay="200" class="border-wrapper bg-white flex flex-col">
+          <div class="p-6 flex flex-col items-center justify-center space-y-5">
+            <h3
+              class="text-2xl font-bold text-center bg-gradient-to-r from-cyan-700 to-blue-800 text-transparent bg-clip-text"
+            >
+              Database
+            </h3>
+            <ul class="grid grid-cols-2 text-gray-800 text-md list-disc list-inside gap-3">
+              <li>MySql</li>
+              <li>PostgreSql</li>
+              <li>MongoDB</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Interface -->
+        <div data-aos="fade-up" data-aos-delay="200" class="border-wrapper bg-white flex flex-col">
+          <div class="p-6 flex flex-col items-center justify-center space-y-5">
+            <h3
+              class="text-2xl font-bold text-center bg-gradient-to-r from-cyan-700 to-blue-800 text-transparent bg-clip-text"
+            >
+              Interface
+            </h3>
+            <ul class="grid grid-cols-2 text-gray-800 text-md list-disc list-inside gap-3">
+              <li>REST API</li>
+              <li>Consume API</li>
+              <li>Slicing UI</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Tools & Workflow -->
+        <div data-aos="fade-up" data-aos-delay="600" class="border-wrapper bg-white flex flex-col">
+          <div class="p-6 flex flex-col items-center justify-center space-y-5">
+            <h3
+              class="text-2xl font-bold text-center text-transparent bg-clip-text [-webkit-background-clip:text] bg-[linear-gradient(to_right,_#3B82F6,_#3730A3)]"
+            >
+              Tools & Workflow
+            </h3>
+            <ul class="grid grid-cols-2 text-gray-800 text-md list-disc list-inside gap-3">
+              <li class="col-span-1">Github</li>
+              <li class="col-span-1">Gitlab</li>
+              <li class="col-span-1">VS Code</li>
+              <li class="col-span-1">Postman</li>
+              <li class="col-span-1">Docker</li>
             </ul>
           </div>
         </div>
@@ -554,7 +589,7 @@ onBeforeUnmount(() => {
           class="relative bg-white w-full max-w-xl max-h-[70vh] rounded-xl shadow-md shadow-blue-800/20 overflow-hidden"
         >
           <div
-            class="px-7 py-12 md:px-8 md:py-12 lg:px-10 lg:py-12 overflow-y-auto max-h-[70vh] text-justify hide-scrollbar-to-modal"
+            class="px-7 py-12 md:px-8 md:py-12 lg:px-10 lg:py-12 overflow-y-auto max-h-[70vh] lg:text-justify hide-scrollbar-to-modal"
           >
             <h2 class="text-lg font-bold mb-4">{{ selectedCard.title }}</h2>
 
@@ -626,6 +661,7 @@ onBeforeUnmount(() => {
                     serta menghubungkannya ke sistem restoran.
                   </li>
                 </ul>
+
                 <p><strong>6.</strong> Jobdesk pada fitur Dashboard Admin:</p>
                 <ul class="list-disc list-inside ml-3">
                   <li>
@@ -650,7 +686,7 @@ onBeforeUnmount(() => {
             </div>
 
             <div v-else-if="selectedCard.title === 'Company Profile on Ikan Bakar Bli Putu'">
-              <div class="text-md text-gray-800 space-y-5 leading-relaxed break-words hyphens-auto">
+              <div class="text-md text-gray-800 space-y-5 leading-8 break-words hyphens-auto">
                 <p>
                   <strong>1.</strong> Company Profile: Company Profile ini diperuntukkan untuk umum
                   maupun pelanggan agar mengetahui tentang restoran Ikan Bakar BliPutu secara online
@@ -698,7 +734,7 @@ onBeforeUnmount(() => {
             <div
               v-else-if="selectedCard.title === 'Jinom Resellers (Internship Front-end Developer)'"
             >
-              <div class="text-md text-gray-800 space-y-5 leading-relaxed break-words hyphens-auto">
+              <div class="text-md text-gray-800 space-y-5 leading-8 break-words hyphens-auto">
                 <p>
                   <strong>1.</strong> Jinom Resellers: Jinom Resellers mendukung UMKM internet lokal
                   yang menyediakan internet ke pelanggan seluruh Indonesia. Jinom reseller ini
@@ -828,7 +864,7 @@ onBeforeUnmount(() => {
             </div> -->
 
             <div v-else-if="selectedCard.title === 'Chatting'">
-              <div class="text-md text-gray-800 space-y-5 leading-relaxed break-words hyphens-auto">
+              <div class="text-md text-gray-800 space-y-5 leading-8 break-words hyphens-auto">
                 <p>
                   <strong>1.</strong> Chatting: Komunikasi antar lawan berbasis teks yang
                   memungkinkan pengguna untuk saling bertukar pesan secara real-time.
