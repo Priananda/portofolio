@@ -1,4 +1,4 @@
-# Chatting
+# Portfolio
 
 Deskripsi: Portfolio I Kadek Priananda berbasis website yang terdapat halaman utama, deskripsi singkat, keahlian, proyek-proyek, dan kontak.
 
@@ -17,11 +17,6 @@ Deskripsi: Portfolio I Kadek Priananda berbasis website yang terdapat halaman ut
  git clone https://gitlab.com/kadekpriananda12/portofolio.git
  cd portofolio
 
-
-
-
-
-# portofolio
 
 This template should help get you started developing with Vue 3 in Vite.
 
