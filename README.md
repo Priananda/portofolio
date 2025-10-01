@@ -1,6 +1,6 @@
 # Chatting
 
-Deskripsi: Portfolio I Kadek Priananda berbasis website yang terdapat halaman utama, deskripsi singkat, keahlian, proyek-proyek, dan kontak.
+Deskripsi: Portfolio I Kadek Priananda berbasis website yang terdapat halaman utama, deskripsi singkat, keahlian, project, dan kontak.
 
 ## Fitur-Fitur
 
