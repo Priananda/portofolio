@@ -14,7 +14,7 @@ Deskripsi: Portfolio I Kadek Priananda berbasis website yang terdapat halaman ut
 ## Clone Project
 
 ````bash
- git clone https://gitlab.com/kadekpriananda12/portofolio.git
+ git clone https://github.com/Priananda/portofolio.git
  cd portofolio
 
 
