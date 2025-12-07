@@ -18,6 +18,23 @@ import profilSection2 from '@/assets/images/foto.png'
 import AllButton from '@/components/button/AllButton.vue'
 import ButtonTab from '@/components/button/ButtonTab.vue'
 
+import {
+  LayoutTemplate,
+  Settings,
+  Database,
+  Boxes,
+  Layers,
+  Wrench,
+  Code2,
+  User2,
+  Briefcase,
+  ArrowDownCircle,
+  FolderGit2,
+  Award,
+  ExternalLink,
+  Eye,
+} from 'lucide-vue-next'
+
 // Typing text otomatis
 const textFull = 'Hello, I’m Priananda'
 const typeText = ref('')
@@ -159,6 +176,51 @@ onMounted(() => {
 onBeforeUnmount(() => {
   window.removeEventListener('scroll', scrollPage)
 })
+
+const skillCategories = [
+  {
+    title: 'Front-end',
+    icon: LayoutTemplate,
+    delay: 200,
+    list: ['HTML5', 'Vue.js', 'React.js', 'Next.js'],
+  },
+  {
+    title: 'Back-end',
+    icon: Settings,
+    delay: 300,
+    list: ['Laravel', 'Express.js'],
+  },
+  {
+    title: 'Styling Web',
+    icon: Code2,
+    delay: 350,
+    list: ['CSS3', 'Tailwind CSS', 'Bootstrap', 'Responsive'],
+  },
+  {
+    title: 'State Management',
+    icon: Layers,
+    delay: 400,
+    list: ['Redux', 'Pinia'],
+  },
+  {
+    title: 'Database',
+    icon: Database,
+    delay: 450,
+    list: ['MySQL', 'PostgreSQL', 'MongoDB'],
+  },
+  {
+    title: 'Interface',
+    icon: Boxes,
+    delay: 500,
+    list: ['REST API', 'Consume API', 'Slicing UI'],
+  },
+  {
+    title: 'Tools & Workflow',
+    icon: Wrench,
+    delay: 550,
+    list: ['GitHub', 'GitLab', 'VS Code', 'Postman', 'Docker'],
+  },
+]
 </script>
 
 <template>
@@ -177,302 +239,299 @@ onBeforeUnmount(() => {
     <h1
       data-aos="fade-down"
       data-aos-delay="100"
-      class="z-10 mb-6 text-center text-5xl md:text-7xl lg:text-7xl text-shadow-md font-bold text-blue-800 leading-20"
+      class="z-10 mt-12 mb-6 text-center text-5xl md:text-7xl lg:text-7xl text-shadow-md font-bold text-blue-800 leading-20"
     >
       Welcome to My Portfolio
     </h1>
     <p
       data-aos="fade-up"
       data-aos-delay="300"
-      class="z-10 mb-6 px-2 md:px-0 lg:px-0 text-lg text-center leading-8 text-gray-800"
+      class="z-10 mb-3 px-2 md:px-0 lg:px-0 text-lg text-center leading-8 text-gray-800"
     >
       Welcome to my portfolio. Discover my work and experience below.
     </p>
-    <AllButton label="See More" @click="scrollToSection2" />
+    <div class="z-10 mt-4 flex flex-col items-center">
+      <AllButton label="See More" @click="scrollToSection2" />
+
+      <!-- Scroll Indicator -->
+      <ArrowDownCircle
+        class="mt-6 w-10 h-10 text-blue-700 animate-bounce z-10 cursor-pointer"
+        @click="scrollToSection2"
+      />
+    </div>
   </section>
 
   <!-- Section 2 -->
   <section
     id="section2"
-    class="container mx-auto scroll-mt-20 bg-white mt-24 md:-mt-40 lg:mt-0 px-5 md:px-2 lg:px-14 py-10 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 items-center gap-16"
+    class="relative container mx-auto scroll-mt-20 bg-white mt-1 md:-mt-44 lg:-mt-5 px-5 md:px-2 lg:px-14 py-14 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 items-center gap-16 overflow-hidden"
   >
-    <div class="flex justify-center" data-aos="fade-down">
+    <!-- Profile Image -->
+    <div class="relative flex justify-center z-10" data-aos="fade-down">
+      <!-- Gradient Background -->
+      <div
+        class="absolute inset-0 -z-10 w-[80%] h-[80%] mt-18 mx-auto rounded-3xl blur-2xl opacity-80 bg-gradient-to-b from-blue-500 to-indigo-600"
+      ></div>
+
       <img
         :src="profilSection2"
         alt="Profile"
-        class="w-full md:max-w-xl lg:max-w-xl object-contain rounded-xl shadow-md shadow-blue-800/20"
+        class="w-full md:max-w-xl lg:max-w-xl object-contain rounded-2xl shadow-[0_10px_35px_rgba(59,130,246,0.25)]"
       />
     </div>
 
-    <div class="space-y-5" data-aos="fade-up">
+    <!-- Text Content -->
+    <div class="space-y-3 z-10" data-aos="fade-up">
       <h2
-        class="text-3xl md:text-4xl lg:text-4xl font-bold text-shadow-sm text-transparent bg-clip-text [-webkit-background-clip:text] bg-[linear-gradient(to_right,_#3B82F6,_#3730A3)]"
+        class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text [-webkit-background-clip:text] bg-gradient-to-r from-blue-800 to-indigo-900 flex items-center gap-2"
       >
         {{ typeText }}
       </h2>
 
       <p class="text-justify leading-8 text-gray-800 text-lg break-words hyphens-auto">
-        I'm a web developer specializing in building website-based applications. I've worked on
-        various projects, including online menu ordering systems, admin dashboard systems, Jinom
-        resellers, personal task systems, and more. I'm accustomed to working both in teams and
-        independently, and I remain committed to exploring and contributing to the world of
-        technology.
+        I'm a web developer specializing in building website-based applications. I’ve developed
+        various projects such as online ordering systems, admin dashboards, reseller systems,
+        personal task tools, and more.
+        <br /><br />
+        <span class="flex items-center gap-2 font-medium text-blue-700">
+          <User2 class="w-5 h-5" />
+          Experienced in teamwork & independent development.
+        </span>
+        <span class="flex items-center gap-2 font-medium text-indigo-700">
+          <Code2 class="w-5 h-5" />
+          Passionate about continuous learning & innovation.
+        </span>
       </p>
 
-      <AllButton label="Download CV" @click="downloadCV" />
+      <!-- Skill Badges -->
+      <div class="flex flex-wrap gap-3 mt-4">
+        <span
+          class="flex items-center gap-1 px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-sm"
+        >
+          <Code2 class="w-4 h-4" />
+          Web Apps
+        </span>
+        <span
+          class="flex items-center gap-1 px-3 py-1 rounded-full bg-purple-100 text-purple-800 text-sm"
+        >
+          <Briefcase class="w-4 h-4" />
+          Teamwork
+        </span>
+      </div>
+
+      <!-- Download Button -->
+      <AllButton icon="Download" label="Download CV" @click="downloadCV" />
     </div>
   </section>
 
   <!-- Section 3 -->
   <section
     id="section3"
-    class="container mx-auto scroll-mt-28 mt-24 px-5 md:px-2 lg:px-14 bg-white"
+    class="container mx-auto scroll-mt-28 mt-10 px-5 md:px-2 lg:px-14 bg-white"
   >
-    <div class="">
-      <!-- Heading -->
-      <div class="text-center">
-        <h2 data-aos="zoom-in" class="mb-6 text-4xl text-blue-800 font-bold text-shadow-sm">
-          Skills & Tools
-        </h2>
-        <p
-          data-aos="fade-up"
-          class="z-10 mb-14 px-2 md:px-0 lg:px-0 text-lg text-center leading-8 text-gray-800"
+    <!-- Heading -->
+    <div class="text-center mb-14">
+      <h2
+        data-aos="zoom-in"
+        class="mb-6 text-4xl text-blue-800 font-bold text-shadow-sm flex items-center justify-center gap-3"
+      >
+        <Code2 class="w-10 h-10 text-blue-800" />
+        Skills & Tools
+      </h2>
+      <p data-aos="fade-up" class="text-lg text-gray-700 leading-8 max-w-2xl mx-auto">
+        Here are the core technologies and tools I use to craft modern, responsive, and scalable web
+        applications.
+      </p>
+    </div>
+
+    <!-- Grid Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      <!-- Card Component -->
+      <div
+        v-for="(item, i) in skillCategories"
+        :key="i"
+        class="relative group bg-white rounded-2xl p-8 shadow-[0_10px_35px_rgba(0,0,0,0.07)] overflow-hidden transition-all duration-300 hover:shadow-[0_10px_40px_rgba(59,130,246,0.25)] hover:-translate-y-2 hover:scale-[1.02]"
+        data-aos="fade-up"
+        :data-aos-delay="item.delay"
+      >
+        <!-- Absolute Gradient Glow -->
+        <div
+          class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-blue-500/20 via-indigo-500/20 to-purple-600/20 blur-2xl"
+        ></div>
+
+        <!-- Icon -->
+        <div class="relative z-10 flex justify-center mb-5">
+          <component :is="item.icon" class="w-12 h-12 text-blue-800 transition-all" />
+        </div>
+
+        <!-- Title -->
+        <h3
+          class="relative z-10 text-2xl font-bold text-center bg-gradient-to-r from-blue-800 to-indigo-700 text-transparent bg-clip-text mb-6"
         >
-          Here are some of the key development skills and tools I use to build web-based
-          applications.
-        </p>
-      </div>
+          {{ item.title }}
+        </h3>
 
-      <!-- Grid Cards -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Frontend -->
-        <div data-aos="fade-up" data-aos-delay="200" class="border-wrapper bg-white flex flex-col">
-          <div class="p-6 flex flex-col items-center justify-center space-y-5">
-            <h3
-              class="text-2xl font-bold text-center text-transparent bg-clip-text [-webkit-background-clip:text] bg-[linear-gradient(to_right,_#3B82F6,_#3730A3)]"
-            >
-              Front-end
-            </h3>
-            <ul class="grid grid-cols-2 text-gray-800 text-md list-disc list-inside gap-3">
-              <li>HTML5</li>
-              <li>Vue.js</li>
-              <li>React.js</li>
-              <li>Next.js</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Backend -->
-        <div data-aos="fade-up" data-aos-delay="400" class="border-wrapper bg-white flex flex-col">
-          <div class="p-6 flex flex-col items-center justify-center space-y-5">
-            <h3
-              class="text-2xl font-bold text-center text-transparent bg-clip-text [-webkit-background-clip:text] bg-[linear-gradient(to_right,_#3B82F6,_#3730A3)]"
-            >
-              Back-end
-            </h3>
-            <ul class="grid grid-cols-2 text-gray-800 text-md list-disc list-inside gap-3">
-              <li>Laravel</li>
-              <li>Express.js</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- CSS -->
-        <div data-aos="fade-up" data-aos-delay="200" class="border-wrapper bg-white flex flex-col">
-          <div class="p-6 flex flex-col items-center justify-center space-y-5">
-            <h3
-              class="text-2xl font-bold text-center bg-gradient-to-r from-cyan-700 to-blue-800 text-transparent bg-clip-text"
-            >
-              Styling Web
-            </h3>
-            <ul class="grid grid-cols-2 text-gray-800 text-md list-disc list-inside gap-3">
-              <li>CSS3</li>
-              <li>Tailwind CSS</li>
-              <li>Bootstrap</li>
-              <li>Responsive</li>
-            </ul>
-          </div>
-        </div>
-        <!-- State Management -->
-        <div data-aos="fade-up" data-aos-delay="200" class="border-wrapper bg-white flex flex-col">
-          <div class="p-6 flex flex-col items-center justify-center space-y-5">
-            <h3
-              class="text-2xl font-bold text-center bg-gradient-to-r from-cyan-700 to-blue-800 text-transparent bg-clip-text"
-            >
-              State Management
-            </h3>
-            <ul class="grid grid-cols-2 text-gray-800 text-md list-disc list-inside gap-3">
-              <li>Redux</li>
-              <li>Pinia</li>
-            </ul>
-          </div>
-        </div>
-        <!-- Database -->
-        <div data-aos="fade-up" data-aos-delay="200" class="border-wrapper bg-white flex flex-col">
-          <div class="p-6 flex flex-col items-center justify-center space-y-5">
-            <h3
-              class="text-2xl font-bold text-center bg-gradient-to-r from-cyan-700 to-blue-800 text-transparent bg-clip-text"
-            >
-              Database
-            </h3>
-            <ul class="grid grid-cols-2 text-gray-800 text-md list-disc list-inside gap-3">
-              <li>MySql</li>
-              <li>PostgreSql</li>
-              <li>MongoDB</li>
-            </ul>
-          </div>
-        </div>
-        <!-- Interface -->
-        <div data-aos="fade-up" data-aos-delay="200" class="border-wrapper bg-white flex flex-col">
-          <div class="p-6 flex flex-col items-center justify-center space-y-5">
-            <h3
-              class="text-2xl font-bold text-center bg-gradient-to-r from-cyan-700 to-blue-800 text-transparent bg-clip-text"
-            >
-              Interface
-            </h3>
-            <ul class="grid grid-cols-2 text-gray-800 text-md list-disc list-inside gap-3">
-              <li>REST API</li>
-              <li>Consume API</li>
-              <li>Slicing UI</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Tools & Workflow -->
-        <div data-aos="fade-up" data-aos-delay="600" class="border-wrapper bg-white flex flex-col">
-          <div class="p-6 flex flex-col items-center justify-center space-y-5">
-            <h3
-              class="text-2xl font-bold text-center text-transparent bg-clip-text [-webkit-background-clip:text] bg-[linear-gradient(to_right,_#3B82F6,_#3730A3)]"
-            >
-              Tools & Workflow
-            </h3>
-            <ul class="grid grid-cols-2 text-gray-800 text-md list-disc list-inside gap-3">
-              <li class="col-span-1">Github</li>
-              <li class="col-span-1">Gitlab</li>
-              <li class="col-span-1">VS Code</li>
-              <li class="col-span-1">Postman</li>
-              <li class="col-span-1">Docker</li>
-            </ul>
-          </div>
+        <!-- Badges -->
+        <div class="relative z-10 flex flex-wrap justify-center gap-3">
+          <span
+            v-for="(tech, j) in item.list"
+            :key="j"
+            class="px-4 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-800 border border-blue-200 shadow-sm hover:bg-blue-100"
+          >
+            {{ tech }}
+          </span>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Section 4 -->
+  <!-- Section 4 -->
   <section
     id="section4"
     class="scroll-mt-28 container mx-auto mt-24 px-5 md:px-2 lg:px-14 bg-white"
   >
-    <div class="">
+    <div>
+      <!-- Heading -->
       <div class="text-center">
-        <h2 data-aos="zoom-in" class="mb-6 text-4xl text-blue-800 font-bold text-shadow-sm">
+        <h2
+          data-aos="zoom-in"
+          class="mb-6 text-4xl text-blue-800 font-bold text-shadow-sm flex items-center justify-center gap-3"
+        >
+          <FolderGit2 class="w-10 h-10 text-blue-800" />
           My Projects
         </h2>
+
         <p
           data-aos="fade-up"
-          class="z-10 mb-14 px-2 md:px-0 lg:px-0 text-lg text-center leading-8 text-gray-800"
+          class="z-10 mb-14 px-2 md:px-0 text-lg text-center leading-8 text-gray-800"
         >
-          The following are the projects that i have developed
+          The following are the projects that I have developed
         </p>
       </div>
-      <div class="">
-        <div
-          class="md:p-3 lg:p-3 mb-14 md:shadow-xl mx-auto max-w-xl md:bg-blue-300/20 rounded-full flex justify-center items-center"
-        >
-          <div class="flex flex-wrap justify-center gap-10 w-full md:space-x-10">
-            <ButtonTab
-              v-for="tab in clickTab"
-              :key="tab"
-              :isActive="defaultTab === tab"
-              @click="defaultTab = tab"
+
+      <!-- Tabs -->
+      <div
+        class="md:p-3 lg:p-3 mb-14 md:shadow-xl mx-auto max-w-xl md:bg-blue-300/20 rounded-full flex justify-center items-center"
+      >
+        <div class="flex flex-wrap justify-center gap-10 w-full md:space-x-10">
+          <ButtonTab
+            v-for="tab in clickTab"
+            :key="tab"
+            :isActive="defaultTab === tab"
+            @click="defaultTab = tab"
+            class="flex justify-center w-auto"
+          >
+            <div
+              class="flex items-center gap-2"
+              :class="defaultTab === tab ? 'text-white' : 'text-blue-700'"
             >
+              <FolderGit2 v-if="tab === 'Projects'" class="w-5 h-5" />
+              <Award v-else-if="tab === 'Certificates'" class="w-5 h-5" />
               {{ tab }}
-            </ButtonTab>
-          </div>
+            </div>
+          </ButtonTab>
         </div>
+      </div>
 
-        <div>
-          <div v-if="defaultTab === 'Projects'">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- CONTENT -->
+      <div>
+        <!-- PROJECTS TAB -->
+        <div v-if="defaultTab === 'Projects'">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div
+              v-for="(project, index) in projects"
+              :key="project.title"
+              class="group relative flex flex-col overflow-hidden rounded-2xl border border-blue-200 bg-white shadow-md shadow-blue-800/10 hover:shadow-2xl hover:shadow-blue-800/30 hover:-translate-y-2 transition-all duration-300 ease-out"
+              :data-aos="'fade-up'"
+              :data-aos-delay="(index + 1) * 200"
+            >
+              <!-- Gradient Top Border -->
               <div
-                v-for="(project, index) in projects"
-                :key="project.title"
-                class="flex flex-col bg-white overflow-hidden rounded-md shadow-md shadow-blue-800/20"
-                :data-aos="'fade-up'"
-                :data-aos-delay="(index + 1) * 200"
-              >
-                <img :src="project.image" :alt="project.title" class="h-56 w-full object-contain" />
-                <div class="p-6 flex-1 flex flex-col">
-                  <div>
-                    <h3 class="mb-5 text-lg text-black font-bold">
-                      {{ project.title }}
-                    </h3>
-                  </div>
+                class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-purple-700"
+              ></div>
 
-                  <!-- Link Project Section -->
-                  <div class="flex flex-col space-y-2">
-                    <p class="text-md text-gray-800">Link Project:</p>
+              <!-- Image -->
+              <div class="overflow-hidden bg-blue-50">
+                <img
+                  :src="project.image"
+                  :alt="project.title"
+                  class="h-56 w-full object-contain p-6 transition-all duration-300 group-hover:scale-105"
+                />
+              </div>
 
-                    <a
-                      :href="project.linkProject"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="text-md text-blue-800 hover:text-blue-800/90 cursor-pointer break-words underline"
-                    >
-                      {{ project.linkProject }}
-                    </a>
+              <!-- Content -->
+              <div class="p-6 space-y-5 flex flex-col flex-1">
+                <h3 class="text-lg font-semibold text-gray-800 flex items-center gap-2">
+                  {{ project.title }}
+                </h3>
 
-                    <button
-                      type="button"
-                      @click="openModalOnDetail(project)"
-                      class="text-md text-blue-800 hover:text-blue-800/90 cursor-pointer self-start"
-                    >
-                      Details
-                    </button>
-                  </div>
+                <!-- Links -->
+                <div class="space-y-1">
+                  <p class="text-gray-600 flex items-center gap-2 text-sm">
+                    <ExternalLink class="w-4 h-4 text-blue-700" />
+                    Project Link:
+                  </p>
+
+                  <a
+                    :href="project.linkProject"
+                    target="_blank"
+                    class="flex items-center gap-2 text-blue-700 font-semibold underline hover:text-blue-900 break-all"
+                  >
+                    {{ project.linkProject }}
+                    <ExternalLink class="w-4 h-4" />
+                  </a>
                 </div>
+
+                <!-- Button -->
+                <button
+                  @click="openModalOnDetail(project)"
+                  class="mt-auto inline-flex items-center gap-2 text-blue-700 font-medium hover:text-blue-900 hover:underline transition"
+                >
+                  <Eye class="w-4 h-4" />
+                  Details
+                </button>
               </div>
             </div>
           </div>
+        </div>
 
-          <div v-else-if="defaultTab === 'Certificates'">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- CERTIFICATES TAB -->
+        <div v-else-if="defaultTab === 'Certificates'">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div
+              v-for="(certificate, index) in certificates"
+              :key="certificate.title"
+              class="group relative flex flex-col overflow-hidden rounded-2xl border border-blue-200 bg-white shadow-md shadow-blue-800/10 hover:shadow-2xl hover:shadow-blue-800/30 hover:-translate-y-2 transition-all duration-300 ease-out"
+              :data-aos="'fade-up'"
+              :data-aos-delay="(index + 1) * 200"
+            >
+              <!-- Gradient Top Border -->
               <div
-                v-for="(certificate, index) in certificates"
-                :key="certificate.title"
-                class="flex flex-col bg-white overflow-hidden rounded-md shadow-md shadow-blue-800/20"
-                :data-aos="'fade-up'"
-                :data-aos-delay="(index + 1) * 200"
-              >
+                class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-purple-700"
+              ></div>
+
+              <div class="overflow-hidden bg-blue-50">
                 <img
                   :src="certificate.image"
                   :alt="certificate.title"
-                  class="h-56 w-full object-contain"
+                  class="h-56 w-full object-contain p-6 transition-all duration-300 group-hover:scale-105"
                 />
-                <div class="p-6 flex-1 flex flex-col">
-                  <div>
-                    <h3 class="mb-5 text-lg text-black font-bold">
-                      {{ certificate.title }}
-                    </h3>
-                  </div>
+              </div>
 
-                  <div class="flex flex-col space-y-2">
-                    <!-- <p
-                      class="text-md text-blue-800 hover:text-blue-800/90 cursor-pointer break-words"
-                    >
-                      View Certificate
-                    </p> -->
+              <div class="p-6 space-y-5 flex flex-col flex-1">
+                <h3 class="text-lg font-semibold text-gray-800 flex items-center gap-2">
+                  <Award class="w-8 h-8 text-blue-700" />
+                  {{ certificate.title }}
+                </h3>
 
-                    <button
-                      type="button"
-                      @click="openModalOnDetail(certificate)"
-                      class="text-md text-blue-800 hover:text-blue-800/90 cursor-pointer self-start"
-                    >
-                      Details
-                    </button>
-                  </div>
-                </div>
+                <button
+                  @click="openModalOnDetail(certificate)"
+                  class="mt-auto inline-flex items-center gap-2 text-blue-700 font-medium hover:text-blue-900 hover:underline transition"
+                >
+                  <Eye class="w-4 h-4" />
+                  Details
+                </button>
               </div>
             </div>
           </div>
@@ -482,86 +541,110 @@ onBeforeUnmount(() => {
   </section>
 
   <!-- Section 5 -->
-  <section
-    id="section5"
-    class="container mx-auto scroll-mt-28 mt-24 mb-24 px-5 md:px-2 lg:px-14 bg-white"
-  >
-    <div class="">
-      <div class="text-center">
-        <h2 data-aos="zoom-in" class="mb-6 text-4xl text-blue-800 font-bold text-shadow-sm">
-          My Contact
-        </h2>
-        <p
-          data-aos="fade-up"
-          class="z-10 mb-14 px-2 md:px-0 lg:px-0 text-lg text-center leading-8 text-gray-800"
-        >
-          Here is my contact listed below
-        </p>
-      </div>
-
-      <div
-        data-aos="fade-up"
-        class="flex flex-col lg:flex-row mx-auto max-w-7xl justify-between gap-8"
+  <section id="section5" class="container mx-auto scroll-mt-28 mt-24 mb-24 px-5 md:px-2 lg:px-14">
+    <div class="text-center mb-16">
+      <h2
+        data-aos="zoom-in"
+        class="mb-6 text-4xl text-blue-800 font-bold text-shadow-sm flex items-center justify-center gap-3"
       >
-        <div class="lg:w-1/2 p-16 px-10 border-wrapper rounded-md shadow-lg bg-white">
-          <div class="mb-6 space-y-2">
-            <h3 class="font-medium text-lg text-gray-800">Email</h3>
+        <User2 class="w-10 h-10 text-blue-800" />
+        My Contact
+      </h2>
+      <p data-aos="fade-up" class="mt-4 text-lg text-gray-700">
+        Feel free to reach out through any platform below.
+      </p>
+    </div>
+
+    <div data-aos="fade-up" class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
+      <!-- Left -->
+      <div
+        class="p-10 rounded-2xl shadow-xl bg-white border border-blue-100 hover:shadow-2xl transition-all duration-300"
+      >
+        <!-- Email -->
+        <div class="flex gap-4 mb-8 items-start">
+          <div class="w-6 h-6 text-blue-700 mt-1" />
+          <div>
+            <h3 class="font-semibold text-md text-gray-900">Email</h3>
             <a
               href="mailto:kadekpriananda12@gmail.com"
-              class="break-words text-md text-blue-800 hover:text-blue-800/90 hover:underline"
+              class="text-blue-700 hover:underline break-all"
             >
               kadekpriananda12@gmail.com
             </a>
           </div>
-          <div class="mb-6 space-y-2">
-            <h3 class="font-medium text-lg text-gray-800">Phone</h3>
+        </div>
+
+        <!-- Phone -->
+        <div class="flex gap-4 mb-8 items-start">
+          <fiv class="w-6 h-6 text-blue-700 mt-1" />
+          <div>
+            <h3 class="font-semibold text-md text-gray-900">Phone / WhatsApp</h3>
             <a
-              href="https://wa.me/6285964306002?text=Hallo%20saya%20ingin%20%20berdiskusi%20lebih%20lanjut%20dengan%20anda%20terkait%20portofolio%20anda"
+              href="https://wa.me/6285964306002?text=Hallo%20saya%20ingin%20%20berdiskusi%20lebih%20lanjut"
               target="_blank"
-              rel="noopener noreferrer"
-              class="break-words text-md text-blue-800 hover:text-blue-800/90 hover:underline"
+              class="text-blue-700 hover:underline break-all"
             >
               +62 859-6430-6002
             </a>
           </div>
-          <div class="mb-6 space-y-2">
-            <h3 class="font-medium text-lg text-gray-800">Address</h3>
-            <p class="text-md text-gray-800">
-              Jalan by pass ngurah rai, jalan merta sari No. 76 Jimbaran, Kec. Kuta Sel., Kabupaten
-              Badung, Bali 80361.
+        </div>
+
+        <!-- Address -->
+        <div class="flex gap-4 items-start">
+          <div class="w-6 h-6 text-blue-700 mt-1" />
+          <div>
+            <h3 class="font-semibold text-md text-gray-900">Address</h3>
+            <p class="text-gray-700 leading-7 break-all">
+              Jalan By Pass Ngurah Rai, Jalan Merta Sari No. 76 Jimbaran, Kuta Selatan, Badung, Bali
+              80361
             </p>
           </div>
         </div>
+      </div>
 
-        <div class="lg:w-1/2 p-16 px-10 border-wrapper rounded-md shadow-lg bg-white">
-          <div class="mb-6 space-y-2">
-            <h3 class="font-medium text-lg text-gray-800">Github</h3>
+      <!-- Right -->
+      <div
+        class="p-10 rounded-2xl shadow-xl bg-white border border-blue-100 hover:shadow-2xl transition-all duration-300"
+      >
+        <!-- Github -->
+        <div class="flex gap-4 mb-8 items-start">
+          <GitHub class="w-6 h-6 text-gray-900 mt-1" />
+          <div>
+            <h3 class="font-semibold text-md text-gray-900">GitHub</h3>
             <a
               href="https://github.com/Priananda"
               target="_blank"
-              class="break-words text-md text-blue-800 hover:text-blue-800/90 hover:underline"
+              class="text-blue-700 hover:underline break-all"
             >
               https://github.com/Priananda
             </a>
           </div>
+        </div>
 
-          <div class="mb-6 space-y-2">
-            <h3 class="font-medium text-lg text-gray-800">Gitlab</h3>
+        <!-- Gitlab -->
+        <div class="flex gap-4 mb-8 items-start">
+          <GitLab class="w-6 h-6 text-orange-600 mt-1" />
+          <div>
+            <h3 class="font-semibold text-md text-gray-900">GitLab</h3>
             <a
               href="https://gitlab.com/kadekpriananda12"
               target="_blank"
-              class="break-words text-md text-blue-800 hover:text-blue-800/90 hover:underline"
+              class="text-blue-700 hover:underline break-all"
             >
               https://gitlab.com/kadekpriananda12
             </a>
           </div>
+        </div>
 
-          <div class="mb-6 space-y-2">
-            <h3 class="font-medium text-lg text-gray-800">Linkedln</h3>
+        <!-- Linkedin -->
+        <div class="flex gap-4 items-start">
+          <LinkedIn class="w-6 h-6 text-blue-700 mt-1" />
+          <div>
+            <h3 class="font-semibold text-md text-gray-900">LinkedIn</h3>
             <a
               href="https://www.linkedin.com/in/i-kadek-priananda-37573934b/"
               target="_blank"
-              class="break-words text-md text-blue-800 hover:text-blue-800/90 hover:underline"
+              class="text-blue-700 hover:underline break-all"
             >
               https://www.linkedin.com/in/i-kadek-priananda-37573934b/
             </a>
@@ -809,60 +892,6 @@ onBeforeUnmount(() => {
                 <p><strong>6.</strong> Library: Axios dan JWT.</p>
               </div>
             </div>
-
-            <!-- <div v-else-if="selectedCard.title === 'TaskList'">
-              <div class="text-md text-gray-800 space-y-5 leading-relaxed break-words hyphens-auto">
-                <p>
-                  <strong>1.</strong> TaskList: Daftar tugas yang dikerjakan untuk meningkatkan
-                  produktivitas dan memastikan tidak ada tugas yang terlewati.
-                </p>
-
-                <p class="ml-3">
-                  Informasi TaskList: Dalam sistem terdapat aktivitas dinamis seperti: proses
-                  registrasi dan login, membuat tugas yang diinginkan dengan menginputkan judul
-                  tugas, deskripsi, tanggal mulai, tanggal selesai, dan status pending progres
-                  selesai serta dapat mengedit dan menghapus tugas. Kemudian terdapat notifikasi
-                  untuk menampilkan daftar tugas baik baru dibuat maupun edit. Selain itu terdapat
-                  profil pengguna yang bertujuan untuk bahwa daftar tugas tersebut memiliki nama
-                  pengguna.
-                </p>
-
-                <p><strong>2.</strong> Fitur-fitur TaskList:</p>
-                <ul class="list-disc list-inside ml-3">
-                  <li>Halaman Utama.</li>
-                  <li>Registrasi.</li>
-                  <li>Login.</li>
-                  <li>Logout.</li>
-                  <li>CRUD.</li>
-                  <li>Notifikasi.</li>
-                  <li>Profil Pengguna.</li>
-                  <li>Pencarian nama tugas.</li>
-                </ul>
-                <p><strong>3.</strong> Jobdesk pada fitur TaskList:</p>
-                <ul class="list-disc list-inside ml-3">
-                  <li>Membangun halaman utama yang menampilkan daftar tugas.</li>
-                  <li>
-                    Mengimplementasikan halaman registrasi, login, dan logout menggunakan
-                    autentikasi berbasis token (JWT).
-                  </li>
-                  <li>
-                    Mengembangkan CRUD (Create, Read, Update, Delete) untuk pengelolaan tugas oleh
-                    pengguna.
-                  </li>
-                  <li>Menerapkan sistem notifikasi untuk status tugas.</li>
-                  <li>Membuat halaman profil pengguna untuk menampilkan data pemilik tugas.</li>
-                  <li>
-                    Mengintegrasikan fitur pencarian nama tugas untuk memudahkan pengguna menemukan
-                    tugas tertentu.
-                  </li>
-                </ul>
-
-                <p><strong>4.</strong> Tech Stack: Laravel, MySql, Vue.js, dan Tailwind CSS.</p>
-                <p><strong>5.</strong> Interface: REST API dan Consume API.</p>
-                <p><strong>6.</strong> Library: Axios, Pinia, JWT.</p>
-              </div>
-            </div> -->
-
             <div v-else-if="selectedCard.title === 'Chatting'">
               <div class="text-md text-gray-800 space-y-5 leading-8 break-words hyphens-auto">
                 <p>
