@@ -7,7 +7,6 @@ const routes = [
     name: 'HomePage',
     component: HomePage,
   },
-  // route lain kalau ada
 ]
 
 const router = createRouter({

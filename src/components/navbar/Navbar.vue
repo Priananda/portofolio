@@ -65,7 +65,7 @@ function handleMenuClick(id) {
         </ul>
       </nav>
 
-      <!-- Hamburger Button -->
+      <!-- Hamburger Button button-->
       <button
         @click="openSidebar = true"
         class="md:hidden text-blue-800 focus:outline-none cursor-pointer"
