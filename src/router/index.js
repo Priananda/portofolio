@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomePage from '../views/home.vue' // import komponen halaman
+import HomePage from '../views/Home.vue' // import komponen halaman
 
 const routes = [
   {

@@ -1,7 +1,7 @@
 <template>
-  <footer class="bg-white">
-    <div class="py-4 mb-4 text-md text-center text-blue-800">
-      &copy; 2025 Portfolio. All Rights Reserved.
+  <footer class="bg-gradient-to-br from-black via-gray-900 to-indigo-950">
+    <div class="py-6 text-md text-center text-blue-400">
+      &copy; 2025 I Kadek Priananda. All Rights Reserved.
     </div>
   </footer>
 </template>

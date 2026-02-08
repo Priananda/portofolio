@@ -5,7 +5,6 @@ import 'aos/dist/aos.css'
 import imageProject1 from '@/assets/images/project1.png'
 import imageProject2 from '@/assets/images/project2.png'
 import imageProject3 from '@/assets/images/project3.png'
-import imageProject4 from '@/assets/images/project4.png'
 import imageProject5 from '@/assets/images/project5.png'
 
 import imageCertificate1 from '@/assets/images/certificate1.png'
@@ -17,6 +16,24 @@ import imageCertificate5 from '@/assets/images/certificate5.png'
 import profilSection2 from '@/assets/images/foto.png'
 import AllButton from '@/components/button/AllButton.vue'
 import ButtonTab from '@/components/button/ButtonTab.vue'
+
+import {
+  LayoutTemplate,
+  Settings,
+  Database,
+  Boxes,
+  Layers,
+  Wrench,
+  Code2,
+  User2,
+  User,
+  Briefcase,
+  ArrowDownCircle,
+  FolderGit2,
+  Award,
+  ExternalLink,
+  Eye,
+} from 'lucide-vue-next'
 
 // Typing text otomatis
 const textFull = 'Hello, I’m Priananda'
@@ -159,202 +176,828 @@ onMounted(() => {
 onBeforeUnmount(() => {
   window.removeEventListener('scroll', scrollPage)
 })
+
+const skillCategories = [
+  {
+    title: 'Front-end',
+    icon: LayoutTemplate,
+    delay: 200,
+    list: ['HTML5', 'Vue.js', 'React.js', 'Next.js'],
+  },
+  {
+    title: 'Back-end',
+    icon: Settings,
+    delay: 300,
+    list: ['Laravel', 'Express.js'],
+  },
+  {
+    title: 'Styling Web',
+    icon: Code2,
+    delay: 350,
+    list: ['CSS3', 'Tailwind CSS', 'Bootstrap', 'Responsive'],
+  },
+  {
+    title: 'State Management',
+    icon: Layers,
+    delay: 400,
+    list: ['Redux', 'Pinia'],
+  },
+  {
+    title: 'Database',
+    icon: Database,
+    delay: 450,
+    list: ['MySQL', 'PostgreSQL', 'MongoDB'],
+  },
+  {
+    title: 'Interface',
+    icon: Boxes,
+    delay: 500,
+    list: ['REST API', 'Consume API', 'Slicing UI'],
+  },
+  {
+    title: 'Tools & Workflow',
+    icon: Wrench,
+    delay: 550,
+    list: ['GitHub', 'GitLab', 'VS Code', 'Postman', 'Docker'],
+  },
+]
+
+import gsap from 'gsap'
+
+const text = 'Full-Stack Web Dev'
+const titleRef = ref(null)
+
+onMounted(() => {
+  const chars = titleRef.value.querySelectorAll('.char')
+
+  gsap.fromTo(
+    chars,
+    {
+      y: 40,
+      opacity: 0,
+    },
+    {
+      y: 0,
+      opacity: 1,
+      stagger: 0.04,
+      duration: 1.2,
+      ease: 'power3.out',
+      repeat: -1,
+      yoyo: true,
+      repeatDelay: 1.5,
+    },
+  )
+})
+
+import ScrollTrigger from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
+
+const descRef = ref(null)
+
+onMounted(() => {
+  const lines = descRef.value.querySelectorAll('.desc-line')
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: descRef.value,
+      start: 'top 85%',
+      end: 'bottom 55%',
+      scrub: true,
+    },
+  })
+
+  // 🔹 Baris naik + fade satu per satu
+  tl.fromTo(
+    lines,
+    {
+      y: 30,
+      opacity: 0,
+    },
+    {
+      y: 0,
+      opacity: 1,
+      ease: 'none',
+      stagger: 0.25, // 🔥 INI YANG BUAT PER BARIS
+    },
+    0,
+  )
+
+  // 🔹 Warna berjalan PER BARIS
+  tl.to(
+    lines,
+    {
+      backgroundPosition: '0% 0%',
+      ease: 'none',
+      stagger: 0.25,
+    },
+    0,
+  )
+})
+
+// const cards = ref([])
+// const cardWrapper = ref(null)
+
+// onMounted(async () => {
+//   await nextTick()
+
+//   gsap.fromTo(
+//     cards.value,
+//     {
+//       y: -120,
+//       x: (i) => (i % 2 === 0 ? -60 : 60),
+//       rotate: (i) => (i % 2 === 0 ? -6 : 6),
+//       opacity: 0,
+//       scale: 0.95,
+//     },
+//     {
+//       y: 0,
+//       x: 0,
+//       rotate: 0,
+//       scale: 1,
+//       opacity: 1,
+//       ease: 'none',
+//       stagger: {
+//         each: 0.4,
+//       },
+//       scrollTrigger: {
+//         trigger: cardWrapper.value,
+//         start: 'top 85%',
+//         end: '+=700',
+//         scrub: 2,
+//       },
+//     },
+//   )
+// })
+
+const section2Ref = ref(null)
+const imageRef = ref(null)
+const textRef = ref(null)
+
+onMounted(() => {
+  // Timeline utama
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: section2Ref.value,
+      start: 'top 75%',
+      end: 'bottom 60%',
+      scrub: 1,
+    },
+  })
+
+  // Image parallax + scale
+  tl.fromTo(
+    imageRef.value,
+    {
+      y: 80,
+      scale: 0.92,
+      opacity: 0,
+    },
+    {
+      y: 0,
+      scale: 1,
+      opacity: 1,
+      ease: 'power3.out',
+      duration: 1.2,
+    },
+    0,
+  )
+
+  // Text stagger
+  tl.fromTo(
+    textRef.value.children,
+    {
+      y: 40,
+      opacity: 0,
+    },
+    {
+      y: 0,
+      opacity: 1,
+      stagger: 0.15,
+      ease: 'power3.out',
+      duration: 1,
+    },
+    0.2,
+  )
+
+  // Subtle background movement (ambient feel)
+  gsap.to(section2Ref.value, {
+    backgroundPosition: '50% 100%',
+    ease: 'none',
+    scrollTrigger: {
+      trigger: section2Ref.value,
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: true,
+    },
+  })
+})
+
+onMounted(() => {
+  const items = gsap.utils.toArray('.desc-item')
+
+  items.forEach((item) => {
+    gsap.set(item, {
+      opacity: 0,
+      y: 30,
+      filter: 'blur(6px)',
+    })
+
+    gsap.to(item, {
+      opacity: 1,
+      y: 0,
+      filter: 'blur(0px)',
+      duration: 0.9,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: item,
+        start: 'top 85%',
+        end: 'top 65%',
+        toggleActions: 'play reverse play reverse',
+        onEnter: () => glow(item),
+        onEnterBack: () => glow(item),
+      },
+    })
+  })
+})
+
+onBeforeUnmount(() => {
+  ScrollTrigger.getAll().forEach((t) => t.kill())
+})
+
+function glow(el) {
+  el.classList.add('text-glow')
+  setTimeout(() => el.classList.remove('text-glow'), 700)
+}
+
+onMounted(() => {
+  const badges = gsap.utils.toArray('.skill-badge')
+
+  badges.forEach((badge, i) => {
+    gsap.set(badge, {
+      opacity: 0,
+      y: 16,
+      scale: 0.9,
+      filter: 'blur(4px)',
+    })
+
+    gsap.to(badge, {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      filter: 'blur(0px)',
+      duration: 0.6,
+      ease: 'back.out(1.7)',
+      scrollTrigger: {
+        trigger: badge,
+        start: 'top 88%',
+        toggleActions: 'play none none none',
+      },
+      delay: i * 0.1, // subtle cascade
+    })
+  })
+})
+
+onMounted(() => {
+  const badges = gsap.utils.toArray('.skill-badge')
+
+  badges.forEach((badge, i) => {
+    gsap.set(badge, {
+      opacity: 0,
+      y: 18,
+      scale: 0.92,
+      filter: 'blur(4px)',
+    })
+
+    gsap.to(badge, {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      filter: 'blur(0px)',
+      duration: 0.6,
+      ease: 'back.out(1.6)',
+      scrollTrigger: {
+        trigger: badge,
+        start: 'top 88%',
+        toggleActions: 'play none none none',
+      },
+      delay: i * 0.12, // cascade halus
+    })
+  })
+})
+
+onBeforeUnmount(() => {
+  ScrollTrigger.getAll().forEach((t) => t.kill())
+})
+
+// section 3
+const sectionRef = ref(null)
+const skillsLine = ref(null)
+const cards = ref([])
+onMounted(async () => {
+  await nextTick()
+  await nextTick() // 🔥 ekstra tick biar v-for pasti render
+
+  console.log('cards:', cards.value.length) // HARUS > 0
+
+  if (!sectionRef.value || !skillsLine.value || cards.value.length === 0) {
+    console.warn('Section 3 refs belum siap')
+    return
+  }
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: sectionRef.value,
+      start: 'top 75%',
+      toggleActions: 'play none none reverse',
+    },
+  })
+
+  // ✅ LINE FIX (WIDTH + SCALE)
+  tl.fromTo(
+    skillsLine.value,
+    {
+      width: 0,
+      scaleX: 0,
+      opacity: 0,
+      transformOrigin: 'center',
+    },
+    {
+      width: 180,
+      scaleX: 1,
+      opacity: 1,
+      duration: 1,
+      ease: 'power3.out',
+    },
+  )
+
+  // ✅ CARDS FIX
+  tl.fromTo(
+    cards.value,
+    {
+      y: 60,
+      opacity: 0,
+      scale: 0.96,
+    },
+    {
+      y: 0,
+      opacity: 1,
+      scale: 1,
+      duration: 0.9,
+      ease: 'power3.out',
+      stagger: 0.15,
+    },
+    '-=0.4',
+  )
+})
+
+const journeys = [
+  {
+    year: '2020',
+    title: 'Project A',
+    desc: 'Started my journey by joining Project A as a junior developer.',
+  },
+  {
+    year: '2021',
+    title: 'Project B',
+    desc: 'Worked on real-world applications and team collaboration.',
+  },
+  {
+    year: '2022',
+    title: 'Internship',
+    desc: 'Internship as Front-end Developer handling production apps.',
+  },
+  {
+    year: '2023',
+    title: 'Full Stack Growth',
+    desc: 'Building scalable full-stack applications with modern stacks.',
+  },
+]
+const journeySection = ref(null)
+const timelineLine = ref(null)
+const timelineItems = ref([])
+const journeyLine = ref(null)
+
+onMounted(async () => {
+  await nextTick()
+  await nextTick()
+
+  if (!journeySection.value || !timelineLine.value || !journeyLine.value) {
+    console.warn('Journey refs not ready')
+    return
+  }
+
+  /* ================================
+     HORIZONTAL LINE (CENTER → OUT)
+  ================================= */
+  gsap.fromTo(
+    journeyLine.value,
+    {
+      scaleX: 0,
+      opacity: 0,
+      transformOrigin: 'center center',
+    },
+    {
+      scaleX: 1,
+      opacity: 1,
+      duration: 1,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: journeyLine.value,
+        start: 'top 80%',
+        toggleActions: 'play none none reverse',
+      },
+    },
+  )
+  /* ================================
+     VERTICAL LINE
+  ================================= */
+  gsap.fromTo(
+    timelineLine.value,
+    { scaleY: 0 },
+    {
+      scaleY: 1,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: journeySection.value,
+        start: 'top 80%',
+        end: 'bottom 40%',
+        scrub: true,
+      },
+    },
+  )
+
+  /* ================================
+     TIMELINE ITEMS
+  ================================= */
+  gsap.fromTo(
+    timelineItems.value,
+    {
+      opacity: 0,
+      y: 60,
+      filter: 'blur(6px)',
+    },
+    {
+      opacity: 1,
+      y: 0,
+      filter: 'blur(0px)',
+      stagger: 0.25,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: journeySection.value,
+        start: 'top 75%',
+        end: 'bottom 50%',
+        scrub: true,
+      },
+    },
+  )
+})
 </script>
 
 <template>
   <!-- Section 1 -->
+  <!-- SECTION 1 -->
   <section
     id="section1"
-    class="container mx-auto relative min-h-screen scroll-mt-44 bg-white flex flex-col items-center justify-center"
+    class="relative min-h-screen flex items-center justify-center overflow-hidden"
   >
-    <div class="absolute inset-0 z-5">
+    <!-- BACKGROUND GRADIENT -->
+    <div
+      class="absolute inset-0 bg-slate-900 bg-gradient-to-br from-indigo-900 via-black to-indigo-900"
+    ></div>
+
+    <!-- BOTTOM PURPLE GLOW -->
+    <div
+      class="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-[50%] h-[20%] bg-[radial-gradient(ellipse_at_bottom,_#5b21b6_0%,_transparent_70%)] opacity-80"
+    ></div>
+
+    <!-- BUBBLE BACKGROUND -->
+    <div class="absolute inset-0 z-0">
       <div class="bubble-section1"></div>
       <div class="bubble-section1"></div>
       <div class="bubble-section1"></div>
       <div class="bubble-section1"></div>
     </div>
 
-    <h1
-      data-aos="fade-down"
-      data-aos-delay="100"
-      class="z-10 mb-6 text-center text-5xl md:text-7xl lg:text-7xl text-shadow-md font-bold text-blue-800 leading-20"
+    <!-- CONTENT -->
+    <div
+      class="relative z-10 flex flex-col items-center text-center max-w-3xl px-4 md:px-6 lg:px-8 pt-56 pb-32"
     >
-      Welcome to My Portfolio
-    </h1>
-    <p
-      data-aos="fade-up"
-      data-aos-delay="300"
-      class="z-10 mb-6 px-2 md:px-0 lg:px-0 text-lg text-center leading-8 text-gray-800"
-    >
-      Welcome to my portfolio. Discover my work and experience below.
-    </p>
-    <AllButton label="See More" @click="scrollToSection2" />
+      <!-- MAIN TITLE -->
+      <h1
+        ref="titleRef"
+        class="mb-5 text-4xl md:text-6xl lg:text-6xl font-extrabold tracking-tight text-white"
+      >
+        <span class="char" v-for="(c, i) in text" :key="i">
+          {{ c }}
+        </span>
+      </h1>
+
+      <!-- NAME -->
+      <h2
+        class="mb-5 text-lg md:text-2xl font-semibold tracking-wide bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent"
+      >
+        Priananda
+      </h2>
+
+      <!-- DESCRIPTION -->
+      <p
+        data-aos="fade-up"
+        data-aos-delay="300"
+        class="mb-5 text-base md:text-lg leading-relaxed text-slate-300"
+      >
+        Designing and building full-stack web solutions.
+      </p>
+
+      <!-- ACTION -->
+      <div class="flex flex-col items-center gap-6">
+        <AllButton label="See More" @click="scrollToSection2" />
+
+        <!-- SCROLL INDICATOR -->
+        <ArrowDownCircle
+          class="w-10 h-10 text-white animate-bounce cursor-pointer drop-shadow-[0_0_8px_rgba(59,130,246,0.7)] hover:drop-shadow-[0_0_14px_rgba(99,102,241,0.9)] transition-shadow duration-300"
+          @click="scrollToSection2"
+        />
+      </div>
+    </div>
   </section>
 
   <!-- Section 2 -->
   <section
     id="section2"
-    class="container mx-auto scroll-mt-20 bg-white mt-24 md:-mt-40 lg:mt-0 px-5 md:px-2 lg:px-14 py-10 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 items-center gap-16"
+    ref="section2Ref"
+    class="relative mx-auto px-5 md:px-6 lg:px-14 py-28 grid grid-cols-1 lg:grid-cols-2 items-center gap-20 overflow-hidden bg-black bg-gradient-to-br from-black via-black to-indigo-950"
   >
-    <div class="flex justify-center" data-aos="fade-down">
+    <!-- Ambient light left -->
+    <div
+      class="pointer-events-none absolute -left-40 top-1/3 w-[600px] h-[600px] bg-blue-600/20 rounded-full blur-[120px]"
+    ></div>
+
+    <!-- Ambient light right -->
+    <div
+      class="pointer-events-none absolute -right-40 bottom-1/4 w-[600px] h-[600px] bg-indigo-600/20 rounded-full blur-[120px]"
+    ></div>
+
+    <!-- Profile Image -->
+    <div class="relative flex justify-center z-10" data-aos="fade-down">
+      <!-- Glow background -->
+      <div
+        class="absolute -z-10 w-[85%] h-[85%] rounded-3xl blur-3xl opacity-90 bg-gradient-to-b from-blue-600 to-indigo-700"
+      ></div>
+
+      <!-- Soft halo -->
+      <div
+        class="absolute -z-20 w-[110%] h-[110%] rounded-full blur-[120px] bg-indigo-600/20"
+      ></div>
+
       <img
+        ref="imageRef"
         :src="profilSection2"
         alt="Profile"
-        class="w-full md:max-w-xl lg:max-w-xl object-contain rounded-xl shadow-md shadow-blue-800/20"
+        class="w-full max-w-xl object-contain rounded-2xl shadow-[0_25px_60px_rgba(59,130,246,0.45)]"
       />
     </div>
 
-    <div class="space-y-5" data-aos="fade-up">
+    <!-- Text Content -->
+    <div ref="textRef" class="relative z-10 space-y-5 text-slate-200" data-aos="fade-up">
+      <!-- Title -->
       <h2
-        class="text-3xl md:text-4xl lg:text-4xl font-bold text-shadow-sm text-transparent bg-clip-text [-webkit-background-clip:text] bg-[linear-gradient(to_right,_#3B82F6,_#3730A3)]"
+        class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent tracking-tight"
       >
         {{ typeText }}
       </h2>
 
-      <p class="text-justify leading-8 text-gray-800 text-lg break-words hyphens-auto">
-        I'm a web developer specializing in building website-based applications. I've worked on
-        various projects, including online menu ordering systems, admin dashboard systems, Jinom
-        resellers, personal task systems, and more. I'm accustomed to working both in teams and
-        independently, and I remain committed to exploring and contributing to the world of
-        technology.
+      <!-- Description -->
+      <p ref="descRef" class="leading-8 text-lg text-slate-300 space-y-3">
+        <span class="desc-item block">
+          I'm a full-stack web developer specializing in building scalable, maintainable, and
+          high-performance web applications.
+        </span>
+
+        <span class="desc-item block">
+          I’ve developed online ordering systems, admin dashboards, reseller platforms, task
+          management tools, and custom business solutions.
+        </span>
+
+        <span class="desc-item flex items-center gap-2 font-medium text-blue-400">
+          <User2 class="w-5 h-5" />
+          Experienced in teamwork & independent development
+        </span>
+
+        <span class="desc-item flex items-center gap-2 font-medium text-indigo-400">
+          <Code2 class="w-5 h-5" />
+          Passionate about continuous learning & innovation
+        </span>
       </p>
 
-      <AllButton label="Download CV" @click="downloadCV" />
+      <!-- Skill Badges -->
+      <div class="flex flex-wrap gap-3 pt-3">
+        <span
+          class="skill-badge flex items-center gap-1 px-4 py-1.5 rounded-full bg-blue-500/10 text-blue-300 text-sm backdrop-blur-md border border-blue-500/20"
+        >
+          <Code2 class="w-4 h-4" />
+          Web Apps
+        </span>
+
+        <span
+          class="skill-badge flex items-center gap-1 px-4 py-1.5 rounded-full bg-purple-500/10 text-purple-300 text-sm backdrop-blur-md border border-purple-500/20"
+        >
+          <Briefcase class="w-4 h-4" />
+          Teamwork
+        </span>
+
+        <span
+          class="skill-badge flex items-center gap-1 px-4 py-1.5 rounded-full bg-indigo-500/10 text-indigo-300 text-sm backdrop-blur-md border border-indigo-500/20"
+        >
+          <User class="w-4 h-4" />
+          Independent Work
+        </span>
+      </div>
+
+      <!-- Download Button -->
+      <div>
+        <AllButton icon="Download" label="Download CV" @click="downloadCV" />
+      </div>
     </div>
   </section>
 
   <!-- Section 3 -->
   <section
     id="section3"
-    class="container mx-auto scroll-mt-28 mt-24 px-5 md:px-2 lg:px-14 bg-white"
+    ref="sectionRef"
+    class="relative mx-auto px-5 md:px-6 lg:px-14 py-28 bg-black bg-gradient-to-br from-black via-black to-indigo-950 overflow-hidden"
   >
-    <div class="">
-      <!-- Heading -->
-      <div class="text-center">
-        <h2 data-aos="zoom-in" class="mb-6 text-4xl text-blue-800 font-bold text-shadow-sm">
-          Skills & Tools
-        </h2>
-        <p
-          data-aos="fade-up"
-          class="z-10 mb-14 px-2 md:px-0 lg:px-0 text-lg text-center leading-8 text-gray-800"
-        >
-          Here are some of the key development skills and tools I use to build web-based
-          applications.
-        </p>
+    <!-- TOP LEFT GLOW -->
+    <div
+      class="pointer-events-none absolute -top-48 -left-48 w-[700px] h-[700px] bg-blue-600/30 rounded-full blur-[160px]"
+    ></div>
+
+    <!-- TOP RIGHT GLOW -->
+    <div
+      class="pointer-events-none absolute -top-48 -right-48 w-[700px] h-[700px] bg-indigo-600/30 rounded-full blur-[160px]"
+    ></div>
+
+    <!-- OPTIONAL: SOFT CENTER BOOST -->
+    <div
+      class="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-purple-600/10 blur-[140px]"
+    ></div>
+
+    <!-- Heading -->
+    <div class="relative z-10 text-center mb-20">
+      <h2
+        class="mb-6 text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 text-transparent bg-clip-text flex items-center justify-center gap-3"
+      >
+        <Code2 class="w-10 h-10 text-blue-400" />
+        Skills & Tools
+      </h2>
+
+      <!-- Animated Line -->
+      <div class="relative flex justify-center mt-4 mb-6">
+        <span
+          ref="skillsLine"
+          class="block h-[3px] w-[180px] rounded-full bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 shadow-[0_0_20px_rgba(99,102,241,0.6)]"
+        ></span>
       </div>
 
-      <!-- Grid Cards -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Frontend -->
-        <div data-aos="fade-up" data-aos-delay="200" class="border-wrapper bg-white flex flex-col">
-          <div class="p-6 flex flex-col items-center justify-center space-y-5">
-            <h3
-              class="text-2xl font-bold text-center text-transparent bg-clip-text [-webkit-background-clip:text] bg-[linear-gradient(to_right,_#3B82F6,_#3730A3)]"
-            >
-              Front-end
-            </h3>
-            <ul class="grid grid-cols-2 text-gray-800 text-md list-disc list-inside gap-3">
-              <li>HTML5</li>
-              <li>Vue.js</li>
-              <li>React.js</li>
-              <li>Next.js</li>
-            </ul>
+      <p class="text-lg text-gray-300 leading-8 max-w-2xl mx-auto">
+        Core technologies and tools I use to build modern, scalable, and high-performance web
+        applications.
+      </p>
+    </div>
+
+    <!-- Cards -->
+    <div
+      ref="cardWrapper"
+      class="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
+    >
+      <div
+        v-for="(item, i) in skillCategories"
+        :key="i"
+        ref="cards"
+        class="group relative rounded-2xl p-8 bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_15px_40px_rgba(0,0,0,0.6)] transition-all duration-500 hover:-translate-y-3 hover:shadow-indigo-500/20"
+      >
+        <!-- Glow Hover -->
+        <div
+          class="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 bg-gradient-to-br from-blue-500/20 via-indigo-500/20 to-purple-600/20 blur-2xl transition-opacity duration-500"
+        ></div>
+
+        <!-- Icon -->
+        <div class="relative z-10 flex justify-center mb-6">
+          <div
+            class="p-4 rounded-xl bg-gradient-to-br from-blue-500/20 to-indigo-600/20 border border-white/10"
+          >
+            <component
+              :is="item.icon"
+              class="w-10 h-10 text-blue-400 group-hover:scale-110 transition-transform"
+            />
           </div>
         </div>
 
-        <!-- Backend -->
-        <div data-aos="fade-up" data-aos-delay="400" class="border-wrapper bg-white flex flex-col">
-          <div class="p-6 flex flex-col items-center justify-center space-y-5">
-            <h3
-              class="text-2xl font-bold text-center text-transparent bg-clip-text [-webkit-background-clip:text] bg-[linear-gradient(to_right,_#3B82F6,_#3730A3)]"
-            >
-              Back-end
-            </h3>
-            <ul class="grid grid-cols-2 text-gray-800 text-md list-disc list-inside gap-3">
-              <li>Laravel</li>
-              <li>Express.js</li>
-            </ul>
+        <!-- Title -->
+        <h3
+          class="relative z-10 text-2xl font-bold text-center mb-6 bg-gradient-to-r from-blue-300 to-indigo-300 text-transparent bg-clip-text"
+        >
+          {{ item.title }}
+        </h3>
+
+        <!-- Badges -->
+        <div class="relative z-10 flex flex-wrap justify-center gap-3">
+          <span
+            v-for="(tech, j) in item.list"
+            :key="j"
+            class="px-4 py-1.5 rounded-full text-sm font-medium bg-white/10 text-gray-200 border border-white/10 backdrop-blur-md hover:bg-blue-500/20 hover:text-blue-300 transition-colors"
+          >
+            {{ tech }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Journey -->
+  <section
+    ref="journeySection"
+    class="relative mx-auto px-6 lg:px-10 py-28 bg-black bg-gradient-to-br from-black via-black to-indigo-950 overflow-hidden"
+  >
+    <!-- TOP LEFT GLOW -->
+    <div
+      class="pointer-events-none absolute -top-48 -left-48 w-[700px] h-[700px] bg-blue-600/30 rounded-full blur-[160px]"
+    ></div>
+
+    <!-- TOP RIGHT GLOW -->
+    <div
+      class="pointer-events-none absolute -top-48 -right-48 w-[700px] h-[700px] bg-indigo-600/30 rounded-full blur-[160px]"
+    ></div>
+
+    <!-- OPTIONAL: SOFT CENTER BOOST -->
+    <div
+      class="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-purple-600/10 blur-[140px]"
+    ></div>
+
+    <!-- Heading -->
+    <!-- Heading -->
+    <h2
+      class="mb-6 text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 text-transparent bg-clip-text flex items-center justify-center gap-3"
+    >
+      <Code2 class="w-10 h-10 text-blue-400" />
+      Journey & Experience
+    </h2>
+
+    <!-- Horizontal Line -->
+    <div class="relative flex justify-center mb-6">
+      <span
+        ref="journeyLine"
+        class="block h-[4px] w-[180px] rounded-full bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 shadow-[0_0_20px_rgba(99,102,241,0.6)] scale-x-0"
+      />
+    </div>
+
+    <p class="text-center text-gray-300 max-w-2xl mx-auto leading-8 mb-20">
+      A timeline of my professional journey, highlighting key projects, learning milestones, and
+      hands-on experiences that shaped my growth as a developer.
+    </p>
+
+    <!-- Timeline Wrapper -->
+    <div class="relative max-w-4xl mx-auto">
+      <!-- Vertical Line -->
+      <span
+        ref="timelineLine"
+        class="absolute left-1/2 top-0 w-[3px] h-full bg-gradient-to-b from-blue-400 via-indigo-400 to-purple-400 -translate-x-1/2 scale-y-0 origin-top"
+      ></span>
+
+      <!-- Items -->
+      <div
+        v-for="(item, i) in journeys"
+        :key="i"
+        ref="timelineItems"
+        class="relative flex items-center mb-24"
+        :class="i % 2 === 0 ? 'flex-row-reverse' : ''"
+      >
+        <!-- Content -->
+        <div class="w-1/2 px-6">
+          <div
+            class="bg-white/10 border border-white/10 backdrop-blur-xl rounded-2xl p-6 shadow-lg"
+          >
+            <span class="text-blue-400 font-semibold">{{ item.year }}</span>
+            <h3 class="text-xl font-bold text-white mt-2">{{ item.title }}</h3>
+            <p class="text-gray-300 mt-2 leading-relaxed">
+              {{ item.desc }}
+            </p>
           </div>
         </div>
 
-        <!-- CSS -->
-        <div data-aos="fade-up" data-aos-delay="200" class="border-wrapper bg-white flex flex-col">
-          <div class="p-6 flex flex-col items-center justify-center space-y-5">
-            <h3
-              class="text-2xl font-bold text-center bg-gradient-to-r from-cyan-700 to-blue-800 text-transparent bg-clip-text"
-            >
-              Styling Web
-            </h3>
-            <ul class="grid grid-cols-2 text-gray-800 text-md list-disc list-inside gap-3">
-              <li>CSS3</li>
-              <li>Tailwind CSS</li>
-              <li>Bootstrap</li>
-              <li>Responsive</li>
-            </ul>
-          </div>
-        </div>
-        <!-- State Management -->
-        <div data-aos="fade-up" data-aos-delay="200" class="border-wrapper bg-white flex flex-col">
-          <div class="p-6 flex flex-col items-center justify-center space-y-5">
-            <h3
-              class="text-2xl font-bold text-center bg-gradient-to-r from-cyan-700 to-blue-800 text-transparent bg-clip-text"
-            >
-              State Management
-            </h3>
-            <ul class="grid grid-cols-2 text-gray-800 text-md list-disc list-inside gap-3">
-              <li>Redux</li>
-              <li>Pinia</li>
-            </ul>
-          </div>
-        </div>
-        <!-- Database -->
-        <div data-aos="fade-up" data-aos-delay="200" class="border-wrapper bg-white flex flex-col">
-          <div class="p-6 flex flex-col items-center justify-center space-y-5">
-            <h3
-              class="text-2xl font-bold text-center bg-gradient-to-r from-cyan-700 to-blue-800 text-transparent bg-clip-text"
-            >
-              Database
-            </h3>
-            <ul class="grid grid-cols-2 text-gray-800 text-md list-disc list-inside gap-3">
-              <li>MySql</li>
-              <li>PostgreSql</li>
-              <li>MongoDB</li>
-            </ul>
-          </div>
-        </div>
-        <!-- Interface -->
-        <div data-aos="fade-up" data-aos-delay="200" class="border-wrapper bg-white flex flex-col">
-          <div class="p-6 flex flex-col items-center justify-center space-y-5">
-            <h3
-              class="text-2xl font-bold text-center bg-gradient-to-r from-cyan-700 to-blue-800 text-transparent bg-clip-text"
-            >
-              Interface
-            </h3>
-            <ul class="grid grid-cols-2 text-gray-800 text-md list-disc list-inside gap-3">
-              <li>REST API</li>
-              <li>Consume API</li>
-              <li>Slicing UI</li>
-            </ul>
-          </div>
+        <!-- Dot -->
+        <!-- Dot -->
+        <div class="relative z-10 flex items-center justify-center">
+          <!-- outer glow -->
+          <span class="absolute w-10 h-10 rounded-full bg-indigo-700 blur-md"></span>
+
+          <!-- main dot -->
+          <span
+            class="w-5 h-5 rounded-full bg-gradient-to-br from-white via-indigo-700 to-indigo-700 ring-1 ring-indigo-800 shadow-[0_0_15px_rgba(99,102,241,0.9)]"
+          ></span>
         </div>
 
-        <!-- Tools & Workflow -->
-        <div data-aos="fade-up" data-aos-delay="600" class="border-wrapper bg-white flex flex-col">
-          <div class="p-6 flex flex-col items-center justify-center space-y-5">
-            <h3
-              class="text-2xl font-bold text-center text-transparent bg-clip-text [-webkit-background-clip:text] bg-[linear-gradient(to_right,_#3B82F6,_#3730A3)]"
-            >
-              Tools & Workflow
-            </h3>
-            <ul class="grid grid-cols-2 text-gray-800 text-md list-disc list-inside gap-3">
-              <li class="col-span-1">Github</li>
-              <li class="col-span-1">Gitlab</li>
-              <li class="col-span-1">VS Code</li>
-              <li class="col-span-1">Postman</li>
-              <li class="col-span-1">Docker</li>
-            </ul>
-          </div>
-        </div>
+        <div class="w-1/2"></div>
       </div>
     </div>
   </section>
@@ -362,117 +1005,169 @@ onBeforeUnmount(() => {
   <!-- Section 4 -->
   <section
     id="section4"
-    class="scroll-mt-28 container mx-auto mt-24 px-5 md:px-2 lg:px-14 bg-white"
+    class="relative mx-auto px-5 md:px-2 lg:px-14 py-28 bg-black bg-gradient-to-br from-black via-black to-indigo-950 overflow-hidden"
   >
-    <div class="">
+    <!-- TOP LEFT GLOW -->
+    <div
+      class="pointer-events-none absolute -top-48 -left-48 w-[700px] h-[700px] bg-blue-600/30 rounded-full blur-[160px]"
+    ></div>
+
+    <!-- TOP RIGHT GLOW -->
+    <div
+      class="pointer-events-none absolute -top-48 -right-48 w-[700px] h-[700px] bg-indigo-600/30 rounded-full blur-[160px]"
+    ></div>
+
+    <!-- CENTER SOFT BOOST -->
+    <div
+      class="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-purple-600/10 blur-[140px]"
+    ></div>
+
+    <div>
+      <!-- Heading -->
       <div class="text-center">
-        <h2 data-aos="zoom-in" class="mb-6 text-4xl text-blue-800 font-bold text-shadow-sm">
+        <h2
+          class="mb-6 text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 text-transparent bg-clip-text flex items-center justify-center gap-3"
+        >
+          <FolderGit2 class="w-10 h-10 text-blue-400" />
           My Projects
         </h2>
-        <p
-          data-aos="fade-up"
-          class="z-10 mb-14 px-2 md:px-0 lg:px-0 text-lg text-center leading-8 text-gray-800"
-        >
-          The following are the projects that i have developed
+
+        <p class="text-center text-gray-300 max-w-2xl mx-auto leading-8 mb-20">
+          The following are the projects that I have developed
         </p>
       </div>
-      <div class="">
-        <div
-          class="md:p-3 lg:p-3 mb-14 md:shadow-xl mx-auto max-w-xl md:bg-blue-300/20 rounded-full flex justify-center items-center"
-        >
-          <div class="flex flex-wrap justify-center gap-10 w-full md:space-x-10">
-            <ButtonTab
-              v-for="tab in clickTab"
-              :key="tab"
-              :isActive="defaultTab === tab"
-              @click="defaultTab = tab"
+
+      <!-- Tabs -->
+      <div
+        class="md:p-3 lg:p-3 mb-14 shadow-xl mx-auto max-w-xl md:bg-blue-300/20 rounded-full flex justify-center items-center"
+      >
+        <div class="flex flex-wrap justify-center gap-10 w-full md:space-x-10">
+          <ButtonTab
+            v-for="tab in clickTab"
+            :key="tab"
+            :isActive="defaultTab === tab"
+            @click="defaultTab = tab"
+            class="flex justify-center w-auto"
+          >
+            <div
+              class="flex items-center gap-2"
+              :class="
+                defaultTab === tab
+                  ? 'text-white'
+                  : 'bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 text-transparent bg-clip-text'
+              "
             >
+              <FolderGit2 v-if="tab === 'Projects'" class="w-5 h-5" />
+              <Award v-else-if="tab === 'Certificates'" class="w-5 h-5" />
               {{ tab }}
-            </ButtonTab>
-          </div>
+            </div>
+          </ButtonTab>
         </div>
+      </div>
 
-        <div>
-          <div v-if="defaultTab === 'Projects'">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- CONTENT -->
+      <div>
+        <!-- PROJECTS TAB -->
+        <div v-if="defaultTab === 'Projects'">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div
+              v-for="project in projects"
+              :key="project.title"
+              class="group relative flex flex-col overflow-hidden rounded-2xl border border-blue-800/30 bg-gray-900 shadow-lg shadow-indigo-900/50 transition-all duration-300 ease-out hover:shadow-2xl hover:scale-105"
+            >
+              <!-- Gradient Top Border -->
               <div
-                v-for="(project, index) in projects"
-                :key="project.title"
-                class="flex flex-col bg-white overflow-hidden rounded-md shadow-md shadow-blue-800/20"
-                :data-aos="'fade-up'"
-                :data-aos-delay="(index + 1) * 200"
-              >
-                <img :src="project.image" :alt="project.title" class="h-56 w-full object-contain" />
-                <div class="p-6 flex-1 flex flex-col">
-                  <div>
-                    <h3 class="mb-5 text-lg text-black font-bold">
-                      {{ project.title }}
-                    </h3>
-                  </div>
+                class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 z-10"
+              ></div>
 
-                  <!-- Link Project Section -->
-                  <div class="flex flex-col space-y-2">
-                    <p class="text-md text-gray-800">Link Project:</p>
-
-                    <a
-                      :href="project.linkProject"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="text-md text-blue-800 hover:text-blue-800/90 cursor-pointer break-words underline"
-                    >
-                      {{ project.linkProject }}
-                    </a>
-
-                    <button
-                      type="button"
-                      @click="openModalOnDetail(project)"
-                      class="text-md text-blue-800 hover:text-blue-800/90 cursor-pointer self-start"
-                    >
-                      Details
-                    </button>
-                  </div>
+              <!-- IMAGE WRAPPER -->
+              <div class="relative h-56 bg-black overflow-hidden">
+                <div
+                  class="absolute inset-0 flex items-center justify-center transition-transform duration-300 ease-out transform-gpu group-hover:scale-105"
+                >
+                  <img
+                    :src="project.image"
+                    :alt="project.title"
+                    class="max-h-full max-w-full object-contain p-6 select-none"
+                    draggable="false"
+                  />
                 </div>
+              </div>
+
+              <!-- CONTENT -->
+              <div class="p-6 space-y-5 flex flex-col flex-1">
+                <h3 class="text-lg font-semibold text-white flex items-center gap-2">
+                  {{ project.title }}
+                </h3>
+
+                <div class="space-y-1">
+                  <p class="text-gray-300 flex items-center gap-2 text-sm">
+                    <ExternalLink class="w-4 h-4 text-blue-400" />
+                    Project Link:
+                  </p>
+                  <a
+                    :href="project.linkProject"
+                    target="_blank"
+                    class="flex items-center gap-2 text-blue-400 font-semibold underline hover:text-blue-300 break-all"
+                  >
+                    {{ project.linkProject }}
+                    <ExternalLink class="w-4 h-4" />
+                  </a>
+                </div>
+
+                <button
+                  @click="openModalOnDetail(project)"
+                  class="mt-auto inline-flex items-center gap-2 text-blue-400 font-medium transition-colors duration-200 hover:text-blue-300 hover:underline"
+                >
+                  <Eye class="w-4 h-4" />
+                  Details
+                </button>
               </div>
             </div>
           </div>
+        </div>
 
-          <div v-else-if="defaultTab === 'Certificates'">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- CERTIFICATES TAB -->
+        <div v-else-if="defaultTab === 'Certificates'">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div
+              v-for="certificate in certificates"
+              :key="certificate.title"
+              class="group relative flex flex-col overflow-hidden rounded-2xl border border-blue-800/30 bg-gray-900 shadow-lg shadow-indigo-900/50 transition-all duration-300 ease-out hover:shadow-2xl hover:scale-105"
+            >
+              <!-- Gradient Top Border -->
               <div
-                v-for="(certificate, index) in certificates"
-                :key="certificate.title"
-                class="flex flex-col bg-white overflow-hidden rounded-md shadow-md shadow-blue-800/20"
-                :data-aos="'fade-up'"
-                :data-aos-delay="(index + 1) * 200"
-              >
-                <img
-                  :src="certificate.image"
-                  :alt="certificate.title"
-                  class="h-56 w-full object-contain"
-                />
-                <div class="p-6 flex-1 flex flex-col">
-                  <div>
-                    <h3 class="mb-5 text-lg text-black font-bold">
-                      {{ certificate.title }}
-                    </h3>
-                  </div>
+                class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 z-10"
+              ></div>
 
-                  <div class="flex flex-col space-y-2">
-                    <!-- <p
-                      class="text-md text-blue-800 hover:text-blue-800/90 cursor-pointer break-words"
-                    >
-                      View Certificate
-                    </p> -->
-
-                    <button
-                      type="button"
-                      @click="openModalOnDetail(certificate)"
-                      class="text-md text-blue-800 hover:text-blue-800/90 cursor-pointer self-start"
-                    >
-                      Details
-                    </button>
-                  </div>
+              <!-- IMAGE WRAPPER -->
+              <div class="relative h-56 bg-black overflow-hidden">
+                <div
+                  class="absolute inset-0 flex items-center justify-center transition-transform duration-300 ease-out transform-gpu group-hover:scale-105"
+                >
+                  <img
+                    :src="certificate.image"
+                    :alt="certificate.title"
+                    class="max-h-full max-w-full object-contain p-6 select-none"
+                    draggable="false"
+                  />
                 </div>
+              </div>
+
+              <!-- CONTENT -->
+              <div class="p-6 space-y-5 flex flex-col flex-1">
+                <h3 class="text-lg font-semibold text-white flex items-center gap-2">
+                  <Award class="w-8 h-8 text-blue-400" />
+                  {{ certificate.title }}
+                </h3>
+
+                <button
+                  @click="openModalOnDetail(certificate)"
+                  class="mt-auto inline-flex items-center gap-2 text-blue-400 font-medium transition-colors duration-200 hover:text-blue-300 hover:underline"
+                >
+                  <Eye class="w-4 h-4" />
+                  Details
+                </button>
               </div>
             </div>
           </div>
@@ -484,84 +1179,126 @@ onBeforeUnmount(() => {
   <!-- Section 5 -->
   <section
     id="section5"
-    class="container mx-auto scroll-mt-28 mt-24 mb-24 px-5 md:px-2 lg:px-14 bg-white"
+    class="relative mx-auto px-5 md:px-2 lg:px-14 py-28 bg-black bg-gradient-to-br from-black via-black to-indigo-950 overflow-hidden"
   >
-    <div class="">
-      <div class="text-center">
-        <h2 data-aos="zoom-in" class="mb-6 text-4xl text-blue-800 font-bold text-shadow-sm">
-          My Contact
-        </h2>
-        <p
-          data-aos="fade-up"
-          class="z-10 mb-14 px-2 md:px-0 lg:px-0 text-lg text-center leading-8 text-gray-800"
-        >
-          Here is my contact listed below
-        </p>
-      </div>
+    <!-- TOP LEFT GLOW -->
+    <div
+      class="pointer-events-none absolute -top-48 -left-48 w-[700px] h-[700px] bg-blue-600/30 rounded-full blur-[160px]"
+    ></div>
 
-      <div
-        data-aos="fade-up"
-        class="flex flex-col lg:flex-row mx-auto max-w-7xl justify-between gap-8"
+    <!-- TOP RIGHT GLOW -->
+    <div
+      class="pointer-events-none absolute -top-48 -right-48 w-[700px] h-[700px] bg-indigo-600/30 rounded-full blur-[160px]"
+    ></div>
+
+    <!-- CENTER SOFT BOOST -->
+    <div
+      class="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-purple-600/10 blur-[140px]"
+    ></div>
+
+    <!-- Heading -->
+    <div class="text-center mb-16 relative z-10">
+      <h2
+        class="mb-6 text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 text-transparent bg-clip-text flex items-center justify-center gap-3"
       >
-        <div class="lg:w-1/2 p-16 px-10 border-wrapper rounded-md shadow-lg bg-white">
-          <div class="mb-6 space-y-2">
-            <h3 class="font-medium text-lg text-gray-800">Email</h3>
+        <User2 class="w-10 h-10 text-blue-400" />
+        My Contact
+      </h2>
+      <p class="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">
+        Feel free to reach out through any platform below.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto relative z-10">
+      <!-- Left Card -->
+      <div
+        class="p-10 rounded-2xl shadow-lg bg-gray-900 border border-blue-800/30 transition-all duration-300 hover:shadow-2xl hover:scale-105"
+      >
+        <!-- Email -->
+        <div class="flex gap-4 mb-8 items-start">
+          <div class="w-6 h-6 text-blue-400 mt-1" />
+          <div>
+            <h3 class="font-semibold text-md text-white">Email</h3>
             <a
               href="mailto:kadekpriananda12@gmail.com"
-              class="break-words text-md text-blue-800 hover:text-blue-800/90 hover:underline"
+              class="text-blue-400 hover:underline break-all"
             >
               kadekpriananda12@gmail.com
             </a>
           </div>
-          <div class="mb-6 space-y-2">
-            <h3 class="font-medium text-lg text-gray-800">Phone</h3>
+        </div>
+
+        <!-- Phone -->
+        <div class="flex gap-4 mb-8 items-start">
+          <div class="w-6 h-6 text-blue-400 mt-1" />
+          <div>
+            <h3 class="font-semibold text-md text-white">Phone / WhatsApp</h3>
             <a
-              href="https://wa.me/6285964306002?text=Hallo%20saya%20ingin%20%20berdiskusi%20lebih%20lanjut%20dengan%20anda%20terkait%20portofolio%20anda"
+              href="https://wa.me/6285964306002?text=Hallo%20saya%20ingin%20%20berdiskusi%20lebih%20lanjut"
               target="_blank"
-              rel="noopener noreferrer"
-              class="break-words text-md text-blue-800 hover:text-blue-800/90 hover:underline"
+              class="text-blue-400 hover:underline break-all"
             >
               +62 859-6430-6002
             </a>
           </div>
-          <div class="mb-6 space-y-2">
-            <h3 class="font-medium text-lg text-gray-800">Address</h3>
-            <p class="text-md text-gray-800">
-              Jalan by pass ngurah rai, jalan merta sari No. 76 Jimbaran, Kec. Kuta Sel., Kabupaten
-              Badung, Bali 80361.
+        </div>
+
+        <!-- Address -->
+        <div class="flex gap-4 items-start">
+          <div class="w-6 h-6 text-blue-400 mt-1" />
+          <div>
+            <h3 class="font-semibold text-md text-white">Address</h3>
+            <p class="text-gray-300 leading-7 break-all">
+              Jalan By Pass Ngurah Rai, Jalan Merta Sari No. 76 Jimbaran, Kuta Selatan, Badung, Bali
+              80361
             </p>
           </div>
         </div>
+      </div>
 
-        <div class="lg:w-1/2 p-16 px-10 border-wrapper rounded-md shadow-lg bg-white">
-          <div class="mb-6 space-y-2">
-            <h3 class="font-medium text-lg text-gray-800">Github</h3>
+      <!-- Right Card -->
+      <div
+        class="p-10 rounded-2xl shadow-lg bg-gray-900 border border-blue-800/30 transition-all duration-300 hover:shadow-2xl hover:scale-105"
+      >
+        <!-- Github -->
+        <div class="flex gap-4 mb-8 items-start">
+          <GitHub class="w-6 h-6 text-gray-200 mt-1" />
+          <div>
+            <h3 class="font-semibold text-md text-white">GitHub</h3>
             <a
               href="https://github.com/Priananda"
               target="_blank"
-              class="break-words text-md text-blue-800 hover:text-blue-800/90 hover:underline"
+              class="text-blue-400 hover:underline break-all"
             >
               https://github.com/Priananda
             </a>
           </div>
+        </div>
 
-          <div class="mb-6 space-y-2">
-            <h3 class="font-medium text-lg text-gray-800">Gitlab</h3>
+        <!-- GitLab -->
+        <div class="flex gap-4 mb-8 items-start">
+          <GitLab class="w-6 h-6 text-orange-400 mt-1" />
+          <div>
+            <h3 class="font-semibold text-md text-white">GitLab</h3>
             <a
               href="https://gitlab.com/kadekpriananda12"
               target="_blank"
-              class="break-words text-md text-blue-800 hover:text-blue-800/90 hover:underline"
+              class="text-blue-400 hover:underline break-all"
             >
               https://gitlab.com/kadekpriananda12
             </a>
           </div>
+        </div>
 
-          <div class="mb-6 space-y-2">
-            <h3 class="font-medium text-lg text-gray-800">Linkedln</h3>
+        <!-- LinkedIn -->
+        <div class="flex gap-4 items-start">
+          <LinkedIn class="w-6 h-6 text-blue-400 mt-1" />
+          <div>
+            <h3 class="font-semibold text-md text-white">LinkedIn</h3>
             <a
               href="https://www.linkedin.com/in/i-kadek-priananda-37573934b/"
               target="_blank"
-              class="break-words text-md text-blue-800 hover:text-blue-800/90 hover:underline"
+              class="text-blue-400 hover:underline break-all"
             >
               https://www.linkedin.com/in/i-kadek-priananda-37573934b/
             </a>
@@ -809,60 +1546,6 @@ onBeforeUnmount(() => {
                 <p><strong>6.</strong> Library: Axios dan JWT.</p>
               </div>
             </div>
-
-            <!-- <div v-else-if="selectedCard.title === 'TaskList'">
-              <div class="text-md text-gray-800 space-y-5 leading-relaxed break-words hyphens-auto">
-                <p>
-                  <strong>1.</strong> TaskList: Daftar tugas yang dikerjakan untuk meningkatkan
-                  produktivitas dan memastikan tidak ada tugas yang terlewati.
-                </p>
-
-                <p class="ml-3">
-                  Informasi TaskList: Dalam sistem terdapat aktivitas dinamis seperti: proses
-                  registrasi dan login, membuat tugas yang diinginkan dengan menginputkan judul
-                  tugas, deskripsi, tanggal mulai, tanggal selesai, dan status pending progres
-                  selesai serta dapat mengedit dan menghapus tugas. Kemudian terdapat notifikasi
-                  untuk menampilkan daftar tugas baik baru dibuat maupun edit. Selain itu terdapat
-                  profil pengguna yang bertujuan untuk bahwa daftar tugas tersebut memiliki nama
-                  pengguna.
-                </p>
-
-                <p><strong>2.</strong> Fitur-fitur TaskList:</p>
-                <ul class="list-disc list-inside ml-3">
-                  <li>Halaman Utama.</li>
-                  <li>Registrasi.</li>
-                  <li>Login.</li>
-                  <li>Logout.</li>
-                  <li>CRUD.</li>
-                  <li>Notifikasi.</li>
-                  <li>Profil Pengguna.</li>
-                  <li>Pencarian nama tugas.</li>
-                </ul>
-                <p><strong>3.</strong> Jobdesk pada fitur TaskList:</p>
-                <ul class="list-disc list-inside ml-3">
-                  <li>Membangun halaman utama yang menampilkan daftar tugas.</li>
-                  <li>
-                    Mengimplementasikan halaman registrasi, login, dan logout menggunakan
-                    autentikasi berbasis token (JWT).
-                  </li>
-                  <li>
-                    Mengembangkan CRUD (Create, Read, Update, Delete) untuk pengelolaan tugas oleh
-                    pengguna.
-                  </li>
-                  <li>Menerapkan sistem notifikasi untuk status tugas.</li>
-                  <li>Membuat halaman profil pengguna untuk menampilkan data pemilik tugas.</li>
-                  <li>
-                    Mengintegrasikan fitur pencarian nama tugas untuk memudahkan pengguna menemukan
-                    tugas tertentu.
-                  </li>
-                </ul>
-
-                <p><strong>4.</strong> Tech Stack: Laravel, MySql, Vue.js, dan Tailwind CSS.</p>
-                <p><strong>5.</strong> Interface: REST API dan Consume API.</p>
-                <p><strong>6.</strong> Library: Axios, Pinia, JWT.</p>
-              </div>
-            </div> -->
-
             <div v-else-if="selectedCard.title === 'Chatting'">
               <div class="text-md text-gray-800 space-y-5 leading-8 break-words hyphens-auto">
                 <p>
@@ -994,7 +1677,7 @@ onBeforeUnmount(() => {
   </section>
 
   <!-- Section 7 name  -->
-  <section class="container">
+  <!-- <section class="container">
     <transition
       enter-active-class="transition transform duration-300"
       enter-from-class="opacity-0 translate-y-full"
@@ -1013,39 +1696,57 @@ onBeforeUnmount(() => {
         </div>
 
         <div
-          class="mt-0 px-6 py-3 font-bold text-center bg-white/90 text-blue-800 border-2 border-blue-800 rounded-md shadow-md shadow-blue-800/20"
+          class="mt-0 px-3 py-3 font-semibold text-center bg-white/90 text-blue-800 border-2 border-blue-800 rounded-lg shadow-md shadow-blue-800/20"
         >
-          <h2 class="text-sm">I Kadek Priananda</h2>
-          <span class="text-xs font-medium text-blue-500">Full-Stack Developer</span>
+          <h2 class="text-sm">Priananda</h2>
+          <span class="text-xs font-medium text-blue-500">Full-Stack Web Developer</span>
         </div>
       </div>
     </transition>
-  </section>
+  </section> -->
 </template>
 
 <style scoped>
 .border-wrapper {
-  box-shadow: 0 1px 8px #0422a5;
-  border-radius: 5px;
-}
-.bubble-section1 {
-  background: radial-gradient(circle at center, rgba(15, 48, 155, 0.838), transparent);
-  animation: bubble 10s linear infinite alternate;
-  position: absolute;
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
+  border-radius: 8px;
+  box-shadow:
+    0 8px 30px rgba(30, 58, 138, 0.35),
+    0 0 20px rgba(79, 70, 229, 0.25);
 }
 
-@keyframes bubble {
+.bubble-section1 {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgb(230, 230, 234),
+    rgb(67, 98, 211) 40%,
+    rgba(12, 58, 210, 0.15) 60%,
+    transparent 70%
+  );
+
+  opacity: 0.8;
+  animation: bubbleLuxury 14s ease-in-out infinite;
+}
+@keyframes bubbleLuxury {
   0% {
-    transform: translateY(0) translateX(0) scale(1);
+    transform: translate(0, 0) scale(1);
+    opacity: 0.75;
   }
-  50% {
-    transform: translateY(-50px) translateX(50px) scale(1.2);
+  40% {
+    transform: translate(40px, -60px) scale(1.15);
+    opacity: 0.9;
+  }
+  70% {
+    transform: translate(-30px, -90px) scale(1.25);
+    opacity: 0.65;
   }
   100% {
-    transform: translateY(0) translateX(0) scale(1);
+    transform: translate(0, 0) scale(1);
+    opacity: 0.8;
   }
 }
 
@@ -1117,5 +1818,57 @@ onBeforeUnmount(() => {
 
 .hide-scrollbar-to-moda::-webkit-scrollbar {
   display: none; /* Safari and Chrome */
+}
+
+.cursor {
+  display: inline-block;
+  margin-left: 4px;
+  animation: blink 1.2s infinite;
+  color: #1d4ed8;
+}
+
+@keyframes blink {
+  0%,
+  45%,
+  100% {
+    opacity: 1;
+  }
+  50%,
+  90% {
+    opacity: 0;
+  }
+}
+
+.wipe-text {
+  background: linear-gradient(90deg, #1e3a8a 0%, #194ad3 50%, #9ca3af 50%, #9ca3af 100%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  will-change: background-position;
+}
+
+.text-glow {
+  animation: glowFade 1s ease-out forwards;
+}
+
+@keyframes glowFade {
+  0% {
+    text-shadow:
+      0 0 0 rgba(59, 130, 246, 0),
+      0 0 0 rgba(99, 102, 241, 0);
+  }
+  50% {
+    text-shadow:
+      0 0 16px rgba(59, 130, 246, 0.7),
+      0 0 32px rgba(99, 102, 241, 0.6);
+  }
+  100% {
+    text-shadow:
+      0 0 6px rgba(59, 130, 246, 0.4),
+      0 0 12px rgba(99, 102, 241, 0.3);
+  }
 }
 </style>
