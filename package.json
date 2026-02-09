@@ -16,8 +16,12 @@
   "dependencies": {
     "animate.css": "^4.1.1",
     "aos": "^2.3.4",
+<<<<<<< HEAD
     "gsap": "^3.14.2",
     "lucide-vue-next": "^0.562.0",
+=======
+    "lucide-vue-next": "^0.556.0",
+>>>>>>> 0cc99843fe91bba1b2c7aeb94e1d49b3745e9ee8
     "pinia": "^3.0.1",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"

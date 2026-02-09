@@ -1,4 +1,4 @@
-<script setup>
+<!-- <script setup>
 import { ref } from 'vue'
 
 const openSidebar = ref(false)
@@ -28,10 +28,10 @@ function closeSidebar() {
     closing.value = false
   }, 400)
 }
-</script>
+</script> -->
 
-<template>
-  <!-- <header class="sticky top-5 md:top-5 lg:top-3 z-30 max-w-md md:max-w-3xl lg:max-w-6xl mx-auto">
+<!-- <template> -->
+<!-- <header class="sticky top-5 md:top-5 lg:top-3 z-30 max-w-md md:max-w-3xl lg:max-w-6xl mx-auto">
     <div
       class="px-6 md:px-8 lg:px-12 py-5 md:py-4 lg:py-4 flex items-center justify-between  transition-colors duration-300 bg-white/30 backdrop-blur-xl border border-white/10 shadow-lg shadow-blue-900/10 md:bg-slate-900 md:backdrop-blur-none md:border-slate-800 md:shadow-none"
     >
@@ -77,7 +77,6 @@ function closeSidebar() {
           </li>
         </ul>
       </nav>
-
 
       <button @click="openSidebar = true" class="md:hidden text-blue-900 cursor-pointer">
         <svg
@@ -155,9 +154,9 @@ function closeSidebar() {
       </nav>
     </aside>
   </div> -->
-</template>
+<!-- </template> -->
 
-<style>
+<!-- <style>
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -197,4 +196,4 @@ function closeSidebar() {
 .animate-slideOut {
   animation: slideOut 0.45s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
 }
-</style>
+</style> -->

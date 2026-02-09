@@ -1031,6 +1031,7 @@ watch(defaultTab, async (newTab) => {
   </section>
 
   <!-- Section 4 -->
+  <!-- Section 4 -->
   <section
     id="section4"
     class="relative mx-auto px-5 md:px-2 lg:px-14 py-28 bg-black bg-gradient-to-br from-black via-black to-indigo-950 overflow-hidden"
@@ -1120,6 +1121,15 @@ watch(defaultTab, async (newTab) => {
                     draggable="false"
                   />
                 </div>
+
+                <!-- Button -->
+                <button
+                  @click="openModalOnDetail(project)"
+                  class="mt-auto inline-flex items-center gap-2 text-blue-700 font-medium hover:text-blue-900 hover:underline transition"
+                >
+                  <Eye class="w-4 h-4" />
+                  Details
+                </button>
               </div>
 
               <!-- CONTENT -->
