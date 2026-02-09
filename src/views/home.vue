@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, nextTick, onBeforeUnmount } from 'vue'
+import { ref, onMounted, nextTick, onBeforeUnmount, watch } from 'vue'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import imageProject1 from '@/assets/images/project1.png'
@@ -652,6 +652,34 @@ onMounted(async () => {
     },
   )
 })
+
+// section project
+const projectsGrid = ref(null)
+const certificatesGrid = ref(null)
+
+watch(defaultTab, async (newTab) => {
+  await nextTick()
+
+  const target =
+    newTab === 'Projects' ? projectsGrid.value.children : certificatesGrid.value.children
+
+  gsap.fromTo(
+    target,
+    {
+      opacity: 0,
+      y: 40,
+      scale: 0.95,
+    },
+    {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      duration: 0.6,
+      stagger: 0.1,
+      ease: 'power3.out',
+    },
+  )
+})
 </script>
 
 <template>
@@ -1032,7 +1060,7 @@ onMounted(async () => {
           My Projects
         </h2>
 
-        <p class="text-center text-gray-300 max-w-2xl mx-auto leading-8 mb-20">
+        <p class="text-center text-gray-300 max-w-2xl mx-auto leading-8 mb-10">
           The following are the projects that I have developed
         </p>
       </div>
@@ -1068,7 +1096,7 @@ onMounted(async () => {
       <!-- CONTENT -->
       <div>
         <!-- PROJECTS TAB -->
-        <div v-if="defaultTab === 'Projects'">
+        <div ref="projectsGrid" v-if="defaultTab === 'Projects'">
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div
               v-for="project in projects"
@@ -1128,7 +1156,7 @@ onMounted(async () => {
         </div>
 
         <!-- CERTIFICATES TAB -->
-        <div v-else-if="defaultTab === 'Certificates'">
+        <div ref="certificatesGrid" v-else-if="defaultTab === 'Certificates'">
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div
               v-for="certificate in certificates"
